@@ -9,8 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="plantingtask.TasksController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.TasksController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="610.0">
          <children>
@@ -54,7 +53,7 @@
                   <Font name="Mongolian Baiti" size="15.0" />
                </font>
             </Label>
-            <Circle fill="#ebc3ba" layoutX="89.0" layoutY="327.0" opacity="0.64" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle id="c" fill="#ebc3ba" layoutX="89.0" layoutY="327.0" onMouseClicked="#MouseClick" opacity="0.64" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
             <Button layoutX="201.0" layoutY="322.0" mnemonicParsing="false" opacity="0.69" prefHeight="33.0" prefWidth="43.0" style="-fx-background-color: #ebc3ba;" />
          </children>
       </AnchorPane>

@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="362.0" prefWidth="582.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="plantingtask.RegisterController">
+<AnchorPane id="AnchorPane" prefHeight="362.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.RegisterController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="602.0">
          <children>
@@ -36,7 +35,7 @@
                   <Font name="Mongolian Baiti" size="28.0" />
                </font>
             </Label>
-            <Button layoutX="183.0" layoutY="309.0" mnemonicParsing="false" style="-fx-background-color: #ebc3ba; -fx-background-radius: 7;" text="Register" textFill="#3a6146">
+            <Button layoutX="183.0" layoutY="309.0" mnemonicParsing="false" onAction="#changeScreenButton3Pushed" style="-fx-background-color: #ebc3ba; -fx-background-radius: 7;" text="Register" textFill="#3a6146">
                <font>
                   <Font name="Mongolian Baiti" size="14.0" />
                </font>
