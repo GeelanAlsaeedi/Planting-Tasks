@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="569.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="plantingproject.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="569.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.FXMLDocumentController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <ImageView fitHeight="320.0" fitWidth="576.0" layoutX="-3.0">
@@ -15,7 +15,7 @@
             <Image url="@../projectback.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="95.0" layoutY="146.0" maxWidth="184.0" mnemonicParsing="false" opacity="0.25" prefHeight="47.0" prefWidth="177.0" style="-fx-background-color: white; -fx-background-radius: 7;" textFill="#386146">
+      <Button layoutX="95.0" layoutY="146.0" maxWidth="184.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" opacity="0.25" prefHeight="47.0" prefWidth="177.0" style="-fx-background-color: white; -fx-background-radius: 7;" textFill="#386146">
          <font>
             <Font name="Mongolian Baiti" size="25.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font name="Mongolian Baiti" size="33.0" />
          </font>
       </Label>
-      <Button layoutX="295.0" layoutY="146.0" mnemonicParsing="false" opacity="0.25" prefHeight="47.0" prefWidth="178.0" style="-fx-background-color: white; -fx-background-radius: 7; -fx-background-size: 80;" textFill="#3a6146">
+      <Button layoutX="295.0" layoutY="146.0" mnemonicParsing="false" onAction="#changeScreenButton3Pushed" opacity="0.25" prefHeight="47.0" prefWidth="178.0" style="-fx-background-color: white; -fx-background-radius: 7; -fx-background-size: 80;" textFill="#3a6146">
          <font>
             <Font name="Mongolian Baiti" size="25.0" />
          </font>
