@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  */
 public class RegisterController implements Initializable {
 
-      public void changeScreenButton3Pushed(ActionEvent event) throws IOException{
+      public void changeScreenButton5Pushed(ActionEvent event) throws IOException{
         Parent registerParent = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene=new Scene(registerParent);

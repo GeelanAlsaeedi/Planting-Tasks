@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  */
 public class LogInController implements Initializable {
  public void changeScreenButton2Pushed(ActionEvent event) throws IOException{
-        Parent plantParent = FXMLLoader.load(getClass().getResource("Plant.fxml"));
+        Parent plantParent = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene plantScene=new Scene(plantParent);
         

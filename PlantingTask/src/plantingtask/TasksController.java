@@ -29,24 +29,23 @@ public class TasksController implements Initializable {
  
     @FXML
     private void MouseClick(MouseEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("Plant.fxml"));
+       /* AnchorPane pane = FXMLLoader.load(getClass().getResource("Plant.fxml"));
         Scene gameScene = new Scene(pane);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(gameScene);
-        window.show();
-    }
-     private void backButtonToTasks(ActionEvent event) throws IOException{
-         Parent registerParent = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+        window.show();*/
         
-        Scene registerScene=new Scene(registerParent);
+         Parent taskParent = FXMLLoader.load(getClass().getResource("Plant.fxml"));
+        
+        Scene registerScene=new Scene(taskParent);
         
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         
         window.setScene(registerScene);
         window.show();
-    }
-     
-      @Override
+    }    
+    
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } 

@@ -52,6 +52,7 @@ public class FXMLDocumentController implements Initializable {
         
         window.setScene(registerScene);
         window.show();
+        
     }
     
     @Override

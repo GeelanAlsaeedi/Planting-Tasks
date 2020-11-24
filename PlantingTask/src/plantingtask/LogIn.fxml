@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="400.0" fitWidth="607.0">
@@ -35,7 +34,7 @@
             <Font name="Mongolian Baiti" size="28.0" />
          </font>
       </Label>
-      <Button layoutX="174.0" layoutY="318.0" mnemonicParsing="false" onAction="#changeScreenButton2Pushed" style="-fx-background-color: #ebc3ba; -fx-background-radius: 7;" text="Login" textFill="#3a6146">
+      <Button layoutX="174.0" layoutY="318.0" mnemonicParsing="false" onAction="changeScreenButton2Pushed" style="-fx-background-color: #ebc3ba; -fx-background-radius: 7;" text="Login" textFill="#3a6146">
          <font>
             <Font name="Mongolian Baiti" size="14.0" />
          </font>
