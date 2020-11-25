@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author Joman
  */
-public class PlantController implements Initializable {
+public class AddTasksController implements Initializable {
 
     /**
      * Initializes the controller class.

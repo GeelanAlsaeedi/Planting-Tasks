@@ -27,8 +27,8 @@ import javafx.stage.Stage;
 public class TasksController implements Initializable {
     
   @FXML
-    public void MouseClick(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("Register.fxml"));
+    public void MouseClick(MouseEvent event) throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource("plant.fxml"));
         Scene gameScene = new Scene(pane);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(gameScene);

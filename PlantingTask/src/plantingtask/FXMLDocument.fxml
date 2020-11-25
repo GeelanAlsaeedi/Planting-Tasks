@@ -15,7 +15,7 @@
             <Image url="@../projectback.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="95.0" layoutY="146.0" maxWidth="184.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" onMouseClicked="#changeScreenButtonPushed" opacity="0.25" prefHeight="47.0" prefWidth="177.0" style="-fx-background-color: white; -fx-background-radius: 7;" textFill="#386146">
+      <Button layoutX="95.0" layoutY="146.0" maxWidth="184.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" opacity="0.25" prefHeight="47.0" prefWidth="177.0" style="-fx-background-color: white; -fx-background-radius: 7;" textFill="#386146">
          <font>
             <Font name="Mongolian Baiti" size="25.0" />
          </font>

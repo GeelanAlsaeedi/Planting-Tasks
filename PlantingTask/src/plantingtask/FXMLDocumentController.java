@@ -45,8 +45,8 @@ public class FXMLDocumentController implements Initializable {
     }**/
      
            @FXML
-      public void changeScreenButtonPushed(MouseEvent event) throws IOException{
-        Parent registerParent = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+     public void changeScreenButtonPushed(ActionEvent event) throws IOException{
+        Parent registerParent = FXMLLoader.load(getClass().getResource("login.fxml"));
         
         Scene registerScene=new Scene(registerParent);
         
