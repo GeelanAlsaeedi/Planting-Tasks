@@ -33,7 +33,8 @@ public class PlantingTask extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        System.out.println("test raghad");
+        //System.out.println("test raghad");
+        System.out.println("test2 raghad");
     }
     
 }
