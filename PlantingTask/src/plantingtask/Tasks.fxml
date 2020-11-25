@@ -41,8 +41,8 @@
                   <Font name="Mongolian Baiti" size="20.0" />
                </font>
             </Label>
-            <Button layoutX="450.0" layoutY="304.0" mnemonicParsing="false" opacity="0.69" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #ebc3ba;" />
-            <Button layoutX="9.0" layoutY="382.0" mnemonicParsing="false" onAction="#MouseClick" opacity="0.69" prefHeight="27.0" prefWidth="52.0" style="-fx-background-color: #ebc3ba;" text="&lt;-" textFill="#3a6146" />
+            <Button layoutX="450.0" layoutY="304.0" mnemonicParsing="false" onAction="#AddToTasks" opacity="0.69" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #ebc3ba;" />
+            <Button layoutX="9.0" layoutY="380.0" mnemonicParsing="false" onAction="#Buttonclick" opacity="0.69" prefHeight="27.0" prefWidth="52.0" style="-fx-background-color: #ebc3ba;" text="&lt;-" textFill="#3a6146" />
             <Circle id="c" fill="#ebc3ba" layoutX="98.0" layoutY="327.0" onMouseClicked="#MouseClick" opacity="0.64" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
             <Button layoutX="209.0" layoutY="323.0" mnemonicParsing="false" opacity="0.69" prefHeight="33.0" prefWidth="43.0" style="-fx-background-color: #ebc3ba;" />
             <Button layoutX="450.0" layoutY="343.0" mnemonicParsing="false" opacity="0.69" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #ebc3ba;" />
