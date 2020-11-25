@@ -7,38 +7,64 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="contact")
+@Table(name="userinformation")
 public class User implements java.io.Serializable {
     @Id
-    @Column(name="Mobile")
-    private String Mobile;
-    @Column(name="Name")
-    private String Name;
+    @Column(name="user_name")
+    private String UserName;
+    @Column(name="email")
+    private String Email;
+    @Column(name="password")
+    private String Password;
+    @Column(name="Score")
+    private double score;
     
 
     public User() {
     }
 
-    public User(String Name, String Moblie) {
-        this.Name = Name;
-        this.Mobile = Moblie;
+    
+    public User(String UserName, String Email, String Password, double score) {
+        this.UserName = UserName;
+        this.Email = Email;
+        this.Password = Password;
+        this.score = score;
     }
 
-    public String getName() {
-        return Name;
+  
+    
+    public String getUserName() {
+        return UserName;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setUserName(String UserName) {
+        this.UserName = UserName;
+    }
+    
+    public String getEmail() {
+        return Email;
     }
 
-    public String getMoblie() {
-        return Mobile;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
-    public void setMoblie(String Moblie) {
-        this.Mobile = Moblie;
+    public String getPassword() {
+        return Password;
     }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
 
     
 }
