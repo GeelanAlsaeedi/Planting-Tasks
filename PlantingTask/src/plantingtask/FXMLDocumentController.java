@@ -46,7 +46,7 @@ public class FXMLDocumentController implements Initializable {
      
            @FXML
      public void changeScreenButtonPushed(ActionEvent event) throws IOException{
-        Parent registerParent = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent registerParent = FXMLLoader.load(getClass().getResource("log.fxml"));
         
         Scene registerScene=new Scene(registerParent);
         
@@ -58,7 +58,7 @@ public class FXMLDocumentController implements Initializable {
     }
         @FXML
         public void labelLoginToRegister(MouseEvent event) throws IOException{
-        Parent pane = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+        Parent pane = FXMLLoader.load(getClass().getResource("Log.fxml"));
         Scene gameScene = new Scene(pane);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(gameScene);

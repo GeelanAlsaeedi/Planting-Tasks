@@ -46,9 +46,9 @@ public class RegisterController implements Initializable {
       }
       
        @FXML
-      public void ToLoginScene(ActionEvent event) throws IOException{
+      public void ToLoginScene(MouseEvent event) throws IOException{
           
-        Parent registerParent2 = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent registerParent2 = FXMLLoader.load(getClass().getResource("log.fxml"));
         Scene registerScene2=new Scene(registerParent2);
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(registerScene2);
