@@ -1,62 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.TasksController">
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="680.0" style="-fx-background-color: #e7e8f4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="610.0">
+      <VBox layoutX="14.0" layoutY="34.0" prefHeight="291.0" prefWidth="176.0">
          <children>
-            <ImageView fitHeight="417.0" fitWidth="624.0" layoutX="-8.0">
-               <image>
-                  <Image url="@../../../../../../Desktop/TasksPage–%207.jpg" />
-               </image>
-            </ImageView>
-            <ListView layoutX="61.0" layoutY="59.0" opacity="0.68" prefHeight="200.0" prefWidth="140.0" />
-            <ListView layoutX="230.0" layoutY="59.0" opacity="0.68" prefHeight="200.0" prefWidth="140.0" />
-            <ListView layoutX="399.0" layoutY="59.0" opacity="0.68" prefHeight="200.0" prefWidth="140.0" />
-            <Label layoutX="98.0" layoutY="35.0" text="All Tasks" textFill="#3a6146">
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="166.0" text="All Tasks" textFill="#282d74">
                <font>
-                  <Font name="Mongolian Baiti" size="17.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="251.0" layoutY="35.0" text="Today's Tasks" textFill="#3a6146">
-               <font>
-                  <Font name="Mongolian Baiti" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="401.0" layoutY="35.0" text="In Processing Tasks" textFill="#3a6146">
-               <font>
-                  <Font name="Mongolian Baiti" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="157.0" layoutY="328.0" prefHeight="18.0" prefWidth="52.0" text="Score" textFill="#3a6146">
-               <font>
-                  <Font name="Mongolian Baiti" size="20.0" />
-               </font>
-            </Label>
-            <Button layoutX="450.0" layoutY="304.0" mnemonicParsing="false" onAction="#AddToTasks" opacity="0.69" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #ebc3ba;" />
-            <Button layoutX="9.0" layoutY="380.0" mnemonicParsing="false" onAction="#Buttonclick" opacity="0.69" prefHeight="27.0" prefWidth="52.0" style="-fx-background-color: #ebc3ba;" text="&lt;-" textFill="#3a6146" />
-            <Circle id="c" fill="#ebc3ba" layoutX="98.0" layoutY="327.0" onMouseClicked="#MouseClick" opacity="0.64" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="209.0" layoutY="323.0" mnemonicParsing="false" opacity="0.69" prefHeight="33.0" prefWidth="43.0" style="-fx-background-color: #ebc3ba;" />
-            <Button layoutX="450.0" layoutY="343.0" mnemonicParsing="false" opacity="0.69" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #ebc3ba;" />
-            <Label layoutX="469.0" layoutY="347.0" text="Remove Tasks" textFill="#3a6146">
-               <font>
-                  <Font name="Mongolian Baiti" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="481.0" layoutY="308.0" text="Add Tasks" textFill="#3a6146">
-               <font>
-                  <Font name="Mongolian Baiti" size="15.0" />
-               </font>
-            </Label>
+            <ListView prefHeight="219.0" prefWidth="166.0" />
          </children>
-      </AnchorPane>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="227.0" layoutY="34.0" prefHeight="265.0" prefWidth="176.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="151.0" text="Today's Tasks" textFill="#282d74">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView prefHeight="219.0" prefWidth="166.0" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="443.0" layoutY="30.0" prefHeight="265.0" prefWidth="183.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="151.0" text="Today's Tasks" textFill="#282d74">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView prefHeight="221.0" prefWidth="183.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </ListView>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="191.0" layoutY="127.0" prefHeight="72.0" prefWidth="36.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="&lt;" textFill="#282d74">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="&gt;" textFill="#282d74">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="403.0" layoutY="126.0" prefHeight="72.0" prefWidth="29.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="&lt;" textFill="#282d74" />
+            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" text="&gt;" textFill="#282d74">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <HBox layoutX="28.0" layoutY="329.0" prefHeight="133.0" prefWidth="628.0">
+         <children>
+            <Circle fill="#282d74" onMouseClicked="#MouseClick" radius="56.0" stroke="BLACK" strokeType="INSIDE" translateX="30.0" />
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="155.0" text="Score" textFill="#282d74" translateY="30.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField prefHeight="36.0" prefWidth="180.0" translateX="-30.0" translateY="35.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </TextField>
+            <VBox prefHeight="133.0" prefWidth="177.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#AddToTasks" prefHeight="27.0" prefWidth="174.0" text="Add Task" textFill="#282d74" translateY="5.0" />
+                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="Remove task" textFill="#282d74" translateY="20.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox layoutY="444.0" prefHeight="55.0" prefWidth="133.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Buttonclick" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: #282d74#282d74;" text="Back" textFill="#fcfff6" translateX="3.0" translateY="20.0" />
+         </children>
+      </VBox>
    </children>
-</AnchorPane>
+</Pane>
