@@ -36,25 +36,20 @@
                   <Font name="Mongolian Baiti" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="149.0" layoutY="327.0" prefHeight="18.0" prefWidth="52.0" text="Score" textFill="#3a6146">
+            <Label layoutX="151.0" layoutY="327.0" prefHeight="18.0" prefWidth="52.0" text="Score" textFill="#3a6146">
                <font>
                   <Font name="Mongolian Baiti" size="20.0" />
                </font>
             </Label>
             <Button layoutX="450.0" layoutY="304.0" mnemonicParsing="false" opacity="0.69" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #ebc3ba;" />
-            <Label layoutX="481.0" layoutY="308.0" text="Add Tasks" textFill="#3a6146">
-               <font>
-                  <Font name="Mongolian Baiti" size="15.0" />
-               </font>
-            </Label>
-            <Button layoutX="450.0" layoutY="335.0" mnemonicParsing="false" opacity="0.69" prefHeight="26.0" prefWidth="126.0" style="-fx-background-color: #ebc3ba;" />
+            <Button layoutX="6.0" layoutY="369.0" mnemonicParsing="false" onAction="#MouseClick" opacity="0.69" prefHeight="27.0" prefWidth="33.0" style="-fx-background-color: #ebc3ba;" text="&lt;-" textFill="#3a6146" />
             <Label layoutX="469.0" layoutY="339.0" text="Remove Tasks" textFill="#3a6146">
                <font>
                   <Font name="Mongolian Baiti" size="15.0" />
                </font>
             </Label>
-            <Circle id="c" fill="#ebc3ba" layoutX="89.0" layoutY="327.0" onMouseClicked="#MouseClick" opacity="0.64" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
-            <Button layoutX="201.0" layoutY="322.0" mnemonicParsing="false" opacity="0.69" prefHeight="33.0" prefWidth="43.0" style="-fx-background-color: #ebc3ba;" />
+            <Circle id="c" fill="#ebc3ba" layoutX="98.0" layoutY="327.0" onMouseClicked="#MouseClick" opacity="0.64" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
+            <Button layoutX="209.0" layoutY="323.0" mnemonicParsing="false" opacity="0.69" prefHeight="33.0" prefWidth="43.0" style="-fx-background-color: #ebc3ba;" />
          </children>
       </AnchorPane>
    </children>

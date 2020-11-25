@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -32,17 +33,40 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
+    /* @FXML
      public void changeScreenButtonPushed(ActionEvent event) throws IOException{
         Parent loginParent = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
-        
         Scene loginScene=new Scene(loginParent);
         
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         
         window.setScene(loginScene);
         window.show();
-    }
+    }**/
      
+           @FXML
+      public void changeScreenButtonPushed(MouseEvent event) throws IOException{
+        Parent registerParent = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+        
+        Scene registerScene=new Scene(registerParent);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene);
+        window.show();
+        
+    }
+        @FXML
+        public void labelLoginToRegister(MouseEvent event) throws IOException{
+        Parent pane = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
+        Scene gameScene = new Scene(pane);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(gameScene);
+        window.show();
+      }
+        
+        
+        @FXML
       public void changeScreenButton3Pushed(ActionEvent event) throws IOException{
         Parent registerParent = FXMLLoader.load(getClass().getResource("Register.fxml"));
         
@@ -54,6 +78,14 @@ public class FXMLDocumentController implements Initializable {
         window.show();
         
     }
+      @FXML
+        public void labelToRegister(MouseEvent event) throws IOException{
+        Parent pane = FXMLLoader.load(getClass().getResource("Register.fxml"));
+        Scene gameScene = new Scene(pane);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(gameScene);
+        window.show();
+      }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
