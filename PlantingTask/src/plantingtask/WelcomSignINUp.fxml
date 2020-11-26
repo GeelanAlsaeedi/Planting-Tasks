@@ -50,7 +50,7 @@
       </VBox>
       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="300.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/rightpink.png" />
+            <Image url="@../rightpink.png" />
          </image>
       </ImageView>
       <VBox layoutX="25.0" layoutY="145.0" prefHeight="142.0" prefWidth="278.0" spacing="10.0">
@@ -99,14 +99,14 @@
       </Button>
       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="253.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/leftpink.png" />
+            <Image url="@../leftpink.png" />
          </image>
       </ImageView>
-      <Pane layoutX="308.0" prefHeight="402.0" prefWidth="300.0" style="-fx-background-color: white;">
+      <Pane prefHeight="402.0" prefWidth="300.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="424.0" fitWidth="299.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Desktop/welcomesignin.png" />
+                  <Image url="@../welcomesignin.png" />
                </image>
             </ImageView>
          </children>
