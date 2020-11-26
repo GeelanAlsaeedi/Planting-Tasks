@@ -5,107 +5,115 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="680.0" style="-fx-background-color: #e7e8f4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="680.0" style="-fx-background-color: #eac3c3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="14.0" layoutY="34.0" prefHeight="291.0" prefWidth="176.0">
+      <VBox layoutX="45.0" layoutY="37.0" prefHeight="291.0" prefWidth="176.0" spacing="10.0">
          <children>
-            <Label alignment="CENTER" prefHeight="33.0" prefWidth="166.0" text="All Tasks" textFill="#282d74">
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="166.0" text="All Tasks" textFill="#c26b6b">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView prefHeight="219.0" prefWidth="166.0" />
+            <ListView prefHeight="354.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </VBox>
-      <VBox layoutX="227.0" layoutY="34.0" prefHeight="265.0" prefWidth="176.0">
+      <VBox layoutX="221.0" layoutY="146.0" prefHeight="72.0" prefWidth="29.0">
          <children>
-            <Label alignment="CENTER" prefHeight="33.0" prefWidth="151.0" text="Today's Tasks" textFill="#282d74">
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
+            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="429.0" layoutY="146.0" prefHeight="72.0" prefWidth="29.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
+            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Buttonclick" opacity="0.59" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
+         <font>
+            <Font name="Segoe UI Semilight" size="12.0" />
+         </font>
+      </Button>
+      <VBox layoutX="252.0" layoutY="37.0" prefHeight="291.0" prefWidth="176.0" spacing="10.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="166.0" text="Today's Tasks" textFill="#c26b6b">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView prefHeight="219.0" prefWidth="166.0" />
+            <ListView prefHeight="354.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </VBox>
-      <VBox layoutX="443.0" layoutY="30.0" prefHeight="265.0" prefWidth="183.0">
+      <VBox layoutX="458.0" layoutY="37.0" prefHeight="291.0" prefWidth="176.0" spacing="10.0">
          <children>
-            <Label alignment="CENTER" prefHeight="43.0" prefWidth="151.0" text="Today's Tasks" textFill="#282d74">
+            <Label alignment="CENTER" prefHeight="33.0" prefWidth="166.0" text="In Processing Tasks" textFill="#c26b6b">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView prefHeight="221.0" prefWidth="183.0">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </ListView>
+            <ListView prefHeight="354.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </VBox>
-      <VBox layoutX="191.0" layoutY="127.0" prefHeight="72.0" prefWidth="36.0">
+      <Pane layoutX="-6.0" layoutY="373.0" prefHeight="132.0" prefWidth="686.0" style="-fx-background-color: #f5f3f5;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="&lt;" textFill="#282d74">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="&gt;" textFill="#282d74">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Button>
-         </children>
-      </VBox>
-      <VBox layoutX="403.0" layoutY="126.0" prefHeight="72.0" prefWidth="29.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" text="&lt;" textFill="#282d74" />
-            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" text="&gt;" textFill="#282d74">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Button>
-         </children>
-      </VBox>
-      <HBox layoutX="28.0" layoutY="329.0" prefHeight="133.0" prefWidth="628.0">
-         <children>
-            <Circle fill="#282d74" onMouseClicked="#MouseClick" radius="56.0" stroke="BLACK" strokeType="INSIDE" translateX="30.0" />
-            <Label alignment="CENTER" prefHeight="42.0" prefWidth="155.0" text="Score" textFill="#282d74" translateY="30.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField prefHeight="36.0" prefWidth="180.0" translateX="-30.0" translateY="35.0">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </TextField>
-            <VBox prefHeight="133.0" prefWidth="177.0">
+            <VBox layoutX="145.0" layoutY="45.0" prefHeight="72.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#AddToTasks" prefHeight="27.0" prefWidth="174.0" text="Add Task" textFill="#282d74" translateY="5.0" />
-                  <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="176.0" text="Remove task" textFill="#282d74" translateY="20.0" />
+                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="91.0" text="Score" textFill="#c26b6b">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </TextField>
                </children>
             </VBox>
+            <VBox layoutX="510.0" layoutY="23.0" prefHeight="133.0" prefWidth="183.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Add Tasks" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Remove Tasks" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Circle fill="#eac3c3" layoutX="74.0" layoutY="66.0" onMouseClicked="#MouseClick" radius="53.0" stroke="BLACK" strokeType="INSIDE" />
          </children>
-      </HBox>
-      <VBox layoutY="444.0" prefHeight="55.0" prefWidth="133.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#Buttonclick" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: #282d74#282d74;" text="Back" textFill="#fcfff6" translateX="3.0" translateY="20.0" />
-         </children>
-      </VBox>
+      </Pane>
    </children>
 </Pane>
