@@ -32,21 +32,25 @@ public class WelcomSignINUpController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TranslateTransition trans = new TranslateTransition();
-        trans.setDuration(Duration.seconds(2));
-        trans.setNode(pic);
-        trans.setToX(600);
-        trans.play();
+        
     }    
     
     @FXML
     void goLeft(MouseEvent event) {
-
+        TranslateTransition trans = new TranslateTransition();
+        trans.setDuration(Duration.seconds(2));
+        trans.setNode(panel);
+        trans.setToX(308);
+        trans.play();
     }
 
     @FXML
     void goRight(MouseEvent event) {
-
+        TranslateTransition trans = new TranslateTransition();
+        trans.setDuration(Duration.seconds(2));
+        trans.setNode(panel);
+        trans.setToX(0);
+        trans.play();
     }
 
 }
