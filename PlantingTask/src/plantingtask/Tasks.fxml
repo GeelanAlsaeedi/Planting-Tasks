@@ -51,7 +51,7 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#Buttonclick" opacity="0.59" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" opacity="0.59" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
@@ -100,7 +100,7 @@
             </VBox>
             <VBox layoutX="510.0" layoutY="23.0" prefHeight="133.0" prefWidth="183.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Add Tasks" textFill="#c26b6b">
+                  <Button mnemonicParsing="false" onMouseClicked="#toAddTasks" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Add Tasks" textFill="#c26b6b">
                      <font>
                         <Font name="Segoe UI Semilight" size="14.0" />
                      </font>

@@ -35,7 +35,7 @@
             <CheckBox mnemonicParsing="false" translateY="12.0" />
          </children>
       </VBox>
-      <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" opacity="0.59" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
+      <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToTasks" onMouseClicked="#backToTasks" opacity="0.59" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
