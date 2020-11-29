@@ -16,11 +16,17 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -73,6 +79,16 @@ public class WelcomSignINUpController implements Initializable {
         trans.setToX(0);
         trans.play();
     }
+    
+    @FXML
+    void ConGuest(ActionEvent event) throws IOException {
+        Parent continueasGuest = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+        Scene Guest=new Scene(continueasGuest);
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(Guest);
+        window.show();
+    }
+
 
 }
 
