@@ -8,8 +8,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f3f5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f3f5;"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.PlantController">
+       <children>
       <VBox layoutX="24.0" layoutY="14.0" prefHeight="107.0" prefWidth="164.0">
          <children>
             <Label prefHeight="17.0" prefWidth="133.0" text="Score" textFill="#c26b6b" translateX="2.0" translateY="3.0">
