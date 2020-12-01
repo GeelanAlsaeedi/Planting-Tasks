@@ -5,9 +5,7 @@
  */
 package plantingtask;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -20,25 +18,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.hibernate.*;
 
-/**
- * FXML Controller class
- *
- * @author Joman
- */
+
+
 public class WelcomSignINUpController implements Initializable {
     @FXML
     private Pane panel;
     @FXML
     private Label label;
+    
+    @FXML
+    private TextField userName;
+    
+    @FXML
+    private TextField userPass;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -60,7 +60,8 @@ public class WelcomSignINUpController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(WelcomSignINUpController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+    }  
+    
     
     @FXML
     void goLeft(MouseEvent event) {
@@ -91,7 +92,7 @@ public class WelcomSignINUpController implements Initializable {
     
     
      @FXML
-      public void ToTask(ActionEvent event) throws IOException{
+      protected void signIn(ActionEvent event) throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -103,7 +104,7 @@ public class WelcomSignINUpController implements Initializable {
     }
       
       @FXML
-      public void toTask2(ActionEvent event) throws IOException{
+      protected void toTaskPage(ActionEvent event) throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -115,7 +116,9 @@ public class WelcomSignINUpController implements Initializable {
     }
      
  @FXML
-      public void toTask3(ActionEvent event) throws IOException{
+      protected void signUp (ActionEvent event) throws IOException{
+          
+          
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -125,17 +128,5 @@ public class WelcomSignINUpController implements Initializable {
         window.setScene(registerScene1);
         window.show();
     }
-       @FXML
-      public void toTask4(ActionEvent event) throws IOException{
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
-    }
-
 }
 
