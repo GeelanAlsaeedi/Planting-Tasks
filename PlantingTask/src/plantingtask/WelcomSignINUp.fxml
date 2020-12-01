@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #eac3c3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.WelcomSignINUpController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #eac3c3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.WelcomSignINUpController">
    <children>
-      <Button layoutX="9.0" layoutY="363.0" mnemonicParsing="false" onAction="#toTask4" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
+      <Button layoutX="14.0" layoutY="349.0" mnemonicParsing="false" onAction="#ContinueToGuest2" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="469.0" layoutY="361.0" mnemonicParsing="false" onAction="#toTask2" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
+      <Button layoutX="468.0" layoutY="349.0" mnemonicParsing="false" onAction="#ContinueToGuest1" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="Segoe UI Semibold" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="330.0" layoutY="237.0" mnemonicParsing="false" onAction="#ToTask" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Sign in" textFill="#c26b6b">
+      <Button layoutX="330.0" layoutY="237.0" mnemonicParsing="false" onAction="#SignIn" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Sign in" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semibold" size="12.0" />
          </font>
@@ -57,7 +57,7 @@
             </HBox>
          </children>
       </VBox>
-            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="300.0" layoutY="349.0" onMouseClicked="#goLeft" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="303.0" layoutY="337.0" onMouseClicked="#goLeft" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../rightpink.png" />
          </image>
@@ -101,19 +101,19 @@
             <Font name="Segoe UI Semibold" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="25.0" layoutY="287.0" mnemonicParsing="false" onAction="#toTask3" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Sign up" textFill="#c26b6b">
+      <Button layoutX="25.0" layoutY="287.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Sign up" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semibold" size="12.0" />
          </font>
       </Button>
-       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="253.0" layoutY="349.0" onMouseClicked="#goRight" pickOnBounds="true" preserveRatio="true">
+       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="249.0" layoutY="337.0" onMouseClicked="#goRight" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../leftpink.png" />
          </image>
       </ImageView>
             <Pane fx:id="panel" layoutY="1.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fitHeight="424.0" fitWidth="299.0" layoutX="1.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="400.0" fitWidth="299.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../welcomesignin.png" />
                </image>

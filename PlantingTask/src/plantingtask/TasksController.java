@@ -25,11 +25,21 @@ import javafx.stage.Stage;
  * @author Joman
  */
 public class TasksController implements Initializable {
-   
-            
+    @FXML
+    void AddTask(ActionEvent event) throws IOException{
+        Parent registerParent1 = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
 
-          @FXML
-      public void toPlant(MouseEvent event) throws IOException{
+    }
+
+    @FXML
+    void ToPlant(MouseEvent event) throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("plants.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -38,74 +48,8 @@ public class TasksController implements Initializable {
         
         window.setScene(registerScene1);
         window.show();
+
     }
-            
- /* @FXML
-    public void MouseClick(MouseEvent event) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource("plants.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    } **/
-    
-    /*
-    
-    @FXML
-    public void backButton(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    } 
-    
-    
-             @FXML
-        public void AddToTasks(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    }
-        @FXML
-        public void backButton(ActionEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    }
-  @FXML
-        public void toAddTasks(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    }
-        @FXML
-        public void MouseClick(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    }**/
-        
-        
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

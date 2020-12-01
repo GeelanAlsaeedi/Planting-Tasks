@@ -63,7 +63,7 @@ public class WelcomSignINUpController implements Initializable {
     }    
     
     @FXML
-    void goLeft(MouseEvent event) {
+    public void goLeft(MouseEvent event) {
         TranslateTransition trans = new TranslateTransition();
         trans.setDuration(Duration.seconds(2));
         trans.setNode(panel);
@@ -72,26 +72,15 @@ public class WelcomSignINUpController implements Initializable {
     }
 
     @FXML
-    void goRight(MouseEvent event) {
+    public void goRight(MouseEvent event) {
         TranslateTransition trans = new TranslateTransition();
         trans.setDuration(Duration.seconds(2));
         trans.setNode(panel);
         trans.setToX(0);
         trans.play();
     }
-    
-    @FXML
-    void ConGuest(MouseEvent event) throws IOException {
-        Parent continueasGuest = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        Scene Guest=new Scene(continueasGuest);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(Guest);
-        window.show();
-    }
-    
-    
      @FXML
-      public void ToTask(ActionEvent event) throws IOException{
+    public void ContinueToGuest1(ActionEvent event) throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -101,9 +90,23 @@ public class WelcomSignINUpController implements Initializable {
         window.setScene(registerScene1);
         window.show();
     }
-      
-      @FXML
-      public void toTask2(ActionEvent event) throws IOException{
+    
+
+    @FXML
+    public void ContinueToGuest2(ActionEvent event)  throws IOException{
+        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    
+    }
+
+    @FXML
+    public void SignIn(ActionEvent event)  throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -113,9 +116,9 @@ public class WelcomSignINUpController implements Initializable {
         window.setScene(registerScene1);
         window.show();
     }
-     
- @FXML
-      public void toTask3(ActionEvent event) throws IOException{
+
+    @FXML
+    public void SignUp(ActionEvent event)  throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -125,17 +128,7 @@ public class WelcomSignINUpController implements Initializable {
         window.setScene(registerScene1);
         window.show();
     }
-       @FXML
-      public void toTask4(ActionEvent event) throws IOException{
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
-    }
+
 
 }
 
