@@ -9,6 +9,7 @@ import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -48,6 +49,12 @@ public class WelcomSignINUpController implements Initializable {
 
     @FXML
     private TextField passUp;
+    
+    @FXML
+    private Label signInErrMsg;
+
+    @FXML
+    private Label signUpErrMsg;
     
     
     @Override
@@ -102,14 +109,41 @@ public class WelcomSignINUpController implements Initializable {
     
      @FXML
       protected void signIn(ActionEvent event) throws IOException{
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+        //get values from textFields at sign In page & and store in variables 
+        String Uname= userNameLog.getText();
+        String Upass= userPassLog.getText();
         
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
+        if(Uname.equals("") || Upass.equals("")){
+          signInErrMsg.setText("Fill all the required fields");
+        }
+        else{
+            //retrive the rows of userinformation Table
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            List<User> userList = null;
+            String queryStr = "from User";//
+            Query query = session.createQuery(queryStr);
+            userList = query.list();
+            session.close();
+
+            //Declare variables to store attribute's vlause of User objects from list
+            String userName = null, userPass = null;
+            for(User u: userList){
+               if(u.getUserName().equals(Uname) && u.getPassword().equals(Upass)){
+                   userName= u.getUserName();
+                   userPass= u.getPassword();
+                   
+                   Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+                   Scene registerScene1=new Scene(registerParent1);
+
+                   Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+                   window.setScene(registerScene1);
+                   window.show();
+                   break;
+               }
+            }
+            if(userName==null || userPass==null)
+            {signInErrMsg.setText("User Name or Password is incorrect");}       
+        }
     }
      
      @FXML
@@ -120,25 +154,26 @@ public class WelcomSignINUpController implements Initializable {
         user.setEmail(emailUp.getText());
         user.setPassword(passUp.getText());
         
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        
-        session = HibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        String userId = (String)session.save(user);
-        tx.commit();
-        session.close();
+        if(user.getUserName().equals("") || user.getEmail().equals("") || user.getPassword().equals(""))
+            {signUpErrMsg.setText("Fill all the required fields");}
+        else{
+         //insert to userinformation Table in plantingtask DataBase
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         session = HibernateUtil.getSessionFactory().openSession();
+         Transaction tx = session.beginTransaction();
+         String userId = (String)session.save(user);
+         tx.commit();
+         session.close();
        
-        if(userId != " "){
-          
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
-        
+         if(userId != ""){
+             
+          Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+          Scene registerScene1=new Scene(registerParent1);
+
+          Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+          window.setScene(registerScene1);
+          window.show();
+         }
         }
     }
 }
