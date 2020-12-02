@@ -51,7 +51,7 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" opacity="0.59" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backtowelcome" opacity="0.59" prefHeight="30.0" prefWidth="50.0" style="-fx-background-color: white; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
