@@ -2,16 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #eac3c3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.AddTasksController">
     <children>
@@ -41,96 +40,96 @@
                         <Font name="Segoe UI Semilight" size="18.0" />
                     </font>
                 </Label>
-                <HBox id="ActionableRB" prefHeight="55.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <HBox id="ActionableRB" alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="582.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="19.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateY="20.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
+                  <RadioButton mnemonicParsing="false" text="Yes" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="No" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
                     </children>
                 </HBox>
-                <Label id="Time" prefHeight="35.0" prefWidth="327.0" text="Will this task take more than 2 minutes? " textFill="#fdfdff" GridPane.rowIndex="3">
+                <Label id="Time" prefHeight="35.0" prefWidth="327.0" text="Will this task take more than 2 minutes? " textFill="#fdfdff" visible="false" GridPane.rowIndex="3">
                     <font>
                         <Font name="Segoe UI Semilight" size="18.0" />
                     </font>
                 </Label>
-                <HBox id="TimeRB" prefHeight="55.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                    <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="19.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateY="20.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                    </children>
-                </HBox>
-                <Label id="whoDoesIt" prefHeight="34.0" prefWidth="242.0" text="Is this task done by you only? " textFill="WHITE" GridPane.rowIndex="4">
+            <HBox id="ActionableRB" alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="582.0" spacing="10.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Yes" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="No" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+                <Label id="whoDoesIt" prefHeight="34.0" prefWidth="242.0" text="Is this task done by you only? " textFill="WHITE" visible="false" GridPane.rowIndex="4">
                     <font>
                         <Font name="Segoe UI Semilight" size="18.0" />
                     </font>
                 </Label>
-                <HBox prefHeight="52.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                    <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="15.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateY="15.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                    </children>
-                </HBox>
-                <Label prefHeight="34.0" prefWidth="256.0" text="Does this task have a due date?" textFill="WHITE" GridPane.rowIndex="5">
+            <HBox id="ActionableRB" alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="582.0" spacing="10.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Yes" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="No" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+                <Label prefHeight="34.0" prefWidth="256.0" text="Does this task have a due date?" textFill="WHITE" visible="false" GridPane.rowIndex="5">
                     <font>
                         <Font name="Segoe UI Semilight" size="18.0" />
                     </font>
                 </Label>
-                <HBox prefHeight="63.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                    <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="15.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateY="15.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                    </children>
-                </HBox>
-                <Label id="whoDoesIt" prefHeight="34.0" prefWidth="242.0" text="Are you waiting on anyone ? " textFill="WHITE" GridPane.rowIndex="6">
+            <HBox id="ActionableRB" alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="582.0" spacing="10.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Yes" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="No" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+                <Label id="whoDoesIt" prefHeight="34.0" prefWidth="242.0" text="Are you waiting on anyone ? " textFill="WHITE" visible="false" GridPane.rowIndex="6">
                     <font>
                         <Font name="Segoe UI Semilight" size="18.0" />
                     </font>
                 </Label>
-                <HBox prefHeight="63.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                    <children>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="15.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateY="15.0">
-                            <font>
-                                <Font size="14.0" />
-                            </font>
-                        </CheckBox>
-                    </children>
-                </HBox>
+            <HBox id="ActionableRB" alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="582.0" spacing="10.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Yes" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="No" textFill="#c26b6b">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="14.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
             </children>
                  <padding>
             <Insets left="20.0" right="20.0" />

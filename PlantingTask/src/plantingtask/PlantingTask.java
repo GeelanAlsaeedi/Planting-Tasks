@@ -37,7 +37,7 @@ public class PlantingTask extends Application {
      //       obScore.add(r.getScore());
      //   }
         
-        Parent root = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Sign in");
         stage.setScene(scene);
