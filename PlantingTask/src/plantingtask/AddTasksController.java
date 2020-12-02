@@ -24,16 +24,7 @@ import javafx.stage.Stage;
  */
 public class AddTasksController implements Initializable {
 
-         @FXML
-    public void BackToTasks(ActionEvent event) throws IOException {
         
-        Parent pane = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    } 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

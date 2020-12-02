@@ -35,7 +35,7 @@ public class TasksController implements Initializable {
       
 
            
-      @FXML
+     /* @FXML
       public void backToWelcome(ActionEvent event) throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
         
@@ -45,7 +45,7 @@ public class TasksController implements Initializable {
         
         window.setScene(registerScene1);
         window.show();
-    }
+    }*/
             
  /* @FXML
     public void MouseClick(MouseEvent event) throws IOException {
