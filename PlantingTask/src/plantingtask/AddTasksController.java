@@ -110,6 +110,17 @@ public class AddTasksController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }   
+     @FXML
+    void totask(ActionEvent event) throws IOException {
+Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    }
     
 }
