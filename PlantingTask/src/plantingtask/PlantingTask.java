@@ -38,11 +38,6 @@ public class PlantingTask extends Application {
      //   }
         
         Parent root = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
-        
-      
-
-
-        
         Scene scene = new Scene(root);
         stage.setTitle("Sign in");
         stage.setScene(scene);
