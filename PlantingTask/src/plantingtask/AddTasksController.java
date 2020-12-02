@@ -59,13 +59,8 @@ public class AddTasksController implements Initializable {
     private HBox waitingHB;
 
     @FXML
-    void BackToTasks(ActionEvent event) {
-
-    }
-
-    @FXML
     void Min2N(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -85,7 +80,7 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void canBeDoneY(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -107,9 +102,13 @@ public class AddTasksController implements Initializable {
     void waitingY(ActionEvent event) {
 
     }
+    @FXML
+    void AddTask(ActionEvent event) {
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // TODO String Uname= TaskNameField.getText();
     }   
      @FXML
     void totask(ActionEvent event) throws IOException {
