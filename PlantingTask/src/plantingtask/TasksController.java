@@ -32,7 +32,17 @@ import org.hibernate.Session;
 public class TasksController implements Initializable {
    
             
-      
+      @FXML
+    void backtowelcome(ActionEvent event) throws IOException {
+Parent registerParent1 = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    }
 
            
      /* @FXML
