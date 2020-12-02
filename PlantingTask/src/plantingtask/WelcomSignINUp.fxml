@@ -14,13 +14,13 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #eac3c3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.WelcomSignINUpController">
    <children>
        <!-- transfer to task page -->
-      <Button layoutX="9.0" layoutY="363.0" mnemonicParsing="false" onAction="#toTaskPage" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
+      <Button layoutX="9.0" layoutY="363.0" mnemonicParsing="false" onAction="#ConGuest" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
       </Button>
       <!-- transfer to task page -->
-      <Button layoutX="469.0" layoutY="361.0" mnemonicParsing="false" onAction="#toTaskPage" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
+      <Button layoutX="469.0" layoutY="361.0" mnemonicParsing="false" onAction="#ConGuest" opacity="0.59" prefHeight="28.0" prefWidth="126.0" style="-fx-background-color: white; -fx-background-radius: 7;" text="Continue as a guest" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
@@ -45,7 +45,7 @@
                         <Font name="Segoe UI Semilight" size="14.0" />
                      </font>
                   </Label>
-                  <TextField  fx:id="userName"  opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+                  <TextField fx:id="userNameLog" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
                </children>
             </HBox>
             <HBox prefHeight="39.0" prefWidth="278.0">
@@ -55,7 +55,7 @@
                         <Font name="Segoe UI Semilight" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="userPass" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+                  <TextField fx:id="userPassLog" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
                </children>
             </HBox>
          </children>
@@ -74,7 +74,7 @@
                         <Font name="Segoe UI Semilight" size="14.0" />
                      </font>
                   </Label>
-                  <TextField opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+                  <TextField fx:id="userNameUp" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
                </children>
             </HBox>
             <HBox prefHeight="39.0" prefWidth="278.0">
@@ -84,7 +84,7 @@
                         <Font name="Segoe UI Semilight" size="14.0" />
                      </font>
                   </Label>
-                  <TextField opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+                  <TextField fx:id="emailUp" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
                </children>
             </HBox>
             <HBox prefHeight="41.0" prefWidth="278.0">
@@ -94,7 +94,7 @@
                         <Font name="Segoe UI Semilight" size="14.0" />
                      </font>
                   </Label>
-                  <TextField opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
+                  <TextField fx:id="passUp" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 5;" />
                </children>
             </HBox>
          </children>
