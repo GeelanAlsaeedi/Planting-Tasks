@@ -105,6 +105,7 @@ public class WelcomSignINUpController implements Initializable {
         //get values from textFields at sign In page & and store in variables 
         String Uname= userNameLog.getText();
         String Upass= userPassLog.getText();
+        boolean log;
         
         if(Uname.equals("") || Upass.equals("")){
           signInErrMsg.setText("Fill all the required fields");
@@ -119,12 +120,12 @@ public class WelcomSignINUpController implements Initializable {
             session.close();
 
             //Declare variables to store attribute's vlause of User objects from list
-            String userName = null, userPass = null;
+            String userName = null, userPass = null; 
             for(User u: userList){
                if(u.getUserName().equals(Uname) && u.getPassword().equals(Upass)){
                    userName= u.getUserName();
-                   userPass= u.getPassword();
-                   
+                   userPass= u.getPassword();           
+                  
                    Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
                    Scene registerScene1=new Scene(registerParent1);
 
