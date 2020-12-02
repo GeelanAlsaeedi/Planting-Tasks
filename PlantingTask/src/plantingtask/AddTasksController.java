@@ -27,7 +27,8 @@ import javafx.scene.layout.HBox;
  * @author Joman
  */
 public class AddTasksController implements Initializable {
-    
+    private int score;
+    private String taskState;
     @FXML
     private TextField TaskNameField;
 
@@ -59,13 +60,8 @@ public class AddTasksController implements Initializable {
     private HBox waitingHB;
 
     @FXML
-    void BackToTasks(ActionEvent event) {
-
-    }
-
-    @FXML
     void Min2N(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -85,7 +81,7 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void canBeDoneY(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -107,9 +103,15 @@ public class AddTasksController implements Initializable {
     void waitingY(ActionEvent event) {
 
     }
+    @FXML
+    void AddTask(ActionEvent event) {
+        String Tname= TaskNameField.getText();
+        User user1= new User();
+       Task_POJO task = new Task_POJO(1, Tname, score, taskState, user1);
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // TODO String Uname= TaskNameField.getText();
     }   
      @FXML
     void totask(ActionEvent event) throws IOException {

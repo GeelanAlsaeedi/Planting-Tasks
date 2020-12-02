@@ -18,6 +18,8 @@ public class User implements java.io.Serializable {
     private String Password;
     @Column(name="Score")
     private double score;
+    @Column(name="log")
+    private boolean log;
     
 
     public User() {

@@ -134,7 +134,7 @@
             <Insets left="20.0" right="20.0" />
          </padding>
       </GridPane>
-      <Button layoutX="497.0" layoutY="330.0" mnemonicParsing="false" onAction="#BackToTasks" opacity="0.59" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: white;" text="Add Task" textFill="#c26b6b">
+      <Button layoutX="497.0" layoutY="330.0" mnemonicParsing="false" onAction="#AddTask" opacity="0.59" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: white;" text="Add Task" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semibold" size="13.0" />
          </font>
