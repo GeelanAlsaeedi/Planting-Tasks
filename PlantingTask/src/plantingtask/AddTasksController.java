@@ -24,7 +24,10 @@ import javafx.stage.Stage;
  */
 public class AddTasksController implements Initializable {
 
-        
+    @FXML
+    void BackToTasks(ActionEvent event) {
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
