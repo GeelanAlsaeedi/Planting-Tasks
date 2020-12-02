@@ -32,8 +32,41 @@ import org.hibernate.Session;
 public class TasksController implements Initializable {
    
             
-      
-
+      @FXML
+    void backtowelcome(ActionEvent event) throws IOException {
+      Parent registerParent1 = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    }
+    
+      @FXML
+    void toaddtask(ActionEvent event) throws IOException {
+Parent registerParent1 = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    }
+           @FXML
+    void toplant(MouseEvent event) throws IOException {
+Parent registerParent1 = FXMLLoader.load(getClass().getResource("Plant.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    }
+   
            
      /* @FXML
       public void backToWelcome(ActionEvent event) throws IOException{
