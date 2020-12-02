@@ -138,18 +138,8 @@ public class WelcomSignINUpController implements Initializable {
             {signInErrMsg.setText("User Name or Password is incorrect");}       
         }
     }
-       @FXML
-      protected void signup(ActionEvent event) throws IOException{
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
-    }
-       @FXML
+       
+      @FXML
       protected void ConGuest(ActionEvent event) throws IOException{
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
