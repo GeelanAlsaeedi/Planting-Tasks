@@ -8,6 +8,8 @@ package plantingtask;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,28 +18,33 @@ public class Task_POJO implements java.io.Serializable{
     
     @Id
     @Column(name="taskID")
-    private String taskID;
+    private int taskID;
+    
     @Column(name="taskName")
     private String taskName;
+    
     @Column(name="taskScore")
-    private String taskScore;
+    private double taskScore;
+    
     @Column(name="taskState")
-    private double taskState;
-    @Column(name="user_name")
-    private double user_name;
+    private String taskState;
+    
+    @OneToMany
+    @JoinColumn(name="user_name")
+    private User user;
 
     public Task_POJO() {
     }
 
-    public Task_POJO(String taskID, String taskName, String taskScore, double taskState, double user_name) {
+    public Task_POJO(int taskID, String taskName, double taskScore, String taskState, User user) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.taskScore = taskScore;
         this.taskState = taskState;
-        this.user_name = user_name;
+        this.user = user;
     }
 
-    public void setTaskID(String taskID) {
+    public void setTaskID(int taskID) {
         this.taskID = taskID;
     }
 
@@ -45,19 +52,19 @@ public class Task_POJO implements java.io.Serializable{
         this.taskName = taskName;
     }
 
-    public void setTaskScore(String taskScore) {
+    public void setTaskScore(double taskScore) {
         this.taskScore = taskScore;
     }
 
-    public void setTaskState(double taskState) {
+    public void setTaskState(String taskState) {
         this.taskState = taskState;
     }
 
-    public void setUser_name(double user_name) {
-        this.user_name = user_name;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getTaskID() {
+    public int getTaskID() {
         return taskID;
     }
 
@@ -65,17 +72,16 @@ public class Task_POJO implements java.io.Serializable{
         return taskName;
     }
 
-    public String getTaskScore() {
+    public double getTaskScore() {
         return taskScore;
     }
 
-    public double getTaskState() {
+    public String getTaskState() {
         return taskState;
     }
 
-    public double getUser_name() {
-        return user_name;
+    public User getUser() {
+        return user;
     }
-    
-    
+ 
 }
