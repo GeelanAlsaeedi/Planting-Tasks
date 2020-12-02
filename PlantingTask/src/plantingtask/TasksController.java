@@ -7,6 +7,10 @@ package plantingtask;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -22,8 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import org.hibernate.Query;
-import org.hibernate.Session;
+
 /**
  * FXML Controller class
  *
@@ -66,86 +69,25 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Plant.fxml"));
         window.setScene(registerScene1);
         window.show();
     }
+    
    
-           
-     /* @FXML
-      public void backToWelcome(ActionEvent event) throws IOException{
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
+    //Revietive from database.
+     @FXML
+    public void alternateViewTable(Connection con) throws IOException, SQLException{
         
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
-    }*/
-            
- /* @FXML
-    public void MouseClick(MouseEvent event) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource("plants.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    } **/
+    String query = "select score from User";
     
-    /*
-    
-    @FXML
-    public void backButton(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    } 
-    
-    
-             @FXML
-        public void AddToTasks(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
+    try (Statement stmt = con.createStatement()) {
+      ResultSet rs = stmt.executeQuery(query);
+      while (rs.next()) {
+        String ScoreCol = rs.getString(1);
+      
+        System.out.println(ScoreCol);
+      }
+    } catch (SQLException e) {
+      User.printSQLException(e);
     }
-        @FXML
-        public void backButton(ActionEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    }
-  @FXML
-        public void toAddTasks(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    }
-        @FXML
-        public void MouseClick(MouseEvent event) throws IOException {
-        
-        Parent pane = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
-        Scene gameScene = new Scene(pane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(gameScene);
-        window.show();
-        
-    }**/
-        
-        
+  }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
