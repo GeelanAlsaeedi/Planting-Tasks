@@ -100,7 +100,7 @@
       </Label>
 
       <!--sign up -->
-      <Button layoutX="25.0" layoutY="287.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Sign up" textFill="#c26b6b">
+      <Button layoutX="25.0" layoutY="287.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Sign up" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semibold" size="12.0" />
          </font>
