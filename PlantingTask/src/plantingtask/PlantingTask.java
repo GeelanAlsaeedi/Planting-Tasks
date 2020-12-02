@@ -20,10 +20,6 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 1cef2b35ad9f25140ce6002a8a067754d4c132e9
 public class PlantingTask extends Application {
     
    // ObservableList<Double> obScore;
@@ -48,7 +44,7 @@ public class PlantingTask extends Application {
 
         
         Scene scene = new Scene(root);
-        
+        stage.setTitle("Sign in");
         stage.setScene(scene);
         stage.show();
     }
