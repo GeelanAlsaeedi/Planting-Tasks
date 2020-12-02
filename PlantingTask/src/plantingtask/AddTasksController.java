@@ -16,6 +16,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -23,9 +27,84 @@ import javafx.stage.Stage;
  * @author Joman
  */
 public class AddTasksController implements Initializable {
+    
+    @FXML
+    private TextField TaskNameField;
+
+    @FXML
+    private HBox ActionableHB;
+
+    @FXML
+    private Label Time;
+
+    @FXML
+    private HBox TimeHB;
+
+    @FXML
+    private Label WhoDoesIt;
+
+    @FXML
+    private HBox WhoDoesItHB;
+
+    @FXML
+    private Label DueDate;
+
+    @FXML
+    private HBox DueDateHB;
+
+    @FXML
+    private Label waiting;
+
+    @FXML
+    private HBox waitingHB;
 
     @FXML
     void BackToTasks(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Min2N(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Min2Y(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SoloN(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SoloY(ActionEvent event) {
+
+    }
+
+    @FXML
+    void canBeDoneY(ActionEvent event) {
+
+    }
+
+    @FXML
+    void dueN(ActionEvent event) {
+
+    }
+
+    @FXML
+    void dueY(ActionEvent event) {
+
+    }
+
+    @FXML
+    void waitingN(ActionEvent event) {
+
+    }
+
+    @FXML
+    void waitingY(ActionEvent event) {
 
     }
     @Override
