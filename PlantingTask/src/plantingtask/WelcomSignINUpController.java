@@ -97,14 +97,7 @@ public class WelcomSignINUpController implements Initializable {
         trans.play();
     }
     
-    @FXML
-    void ConGuest(MouseEvent event) throws IOException {
-        Parent continueasGuest = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        Scene Guest=new Scene(continueasGuest);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(Guest);
-        window.show();
-    }
+   
     
     
      @FXML
