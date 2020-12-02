@@ -90,14 +90,7 @@ public class WelcomSignINUpController implements Initializable {
         trans.play();
     }
     
-    @FXML
-    void ConGuest(MouseEvent event) throws IOException {
-        Parent continueasGuest = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        Scene Guest=new Scene(continueasGuest);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        window.setScene(Guest);
-        window.show();
-    }
+   
     
     
      @FXML
@@ -111,6 +104,29 @@ public class WelcomSignINUpController implements Initializable {
         window.setScene(registerScene1);
         window.show();
     }
+       @FXML
+      protected void signup(ActionEvent event) throws IOException{
+        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    }
+       @FXML
+      protected void ConGuest(ActionEvent event) throws IOException{
+        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+        
+        Scene registerScene1=new Scene(registerParent1);
+        
+        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(registerScene1);
+        window.show();
+    }
+       
      
      @FXML
       protected void signUp (ActionEvent event) throws IOException{
