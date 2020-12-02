@@ -35,11 +35,21 @@ public class WelcomSignINUpController implements Initializable {
     private Label label;
     
     @FXML
-    private TextField userName;
-    
-    @FXML
-    private TextField userPass;
+    private TextField userNameLog;
 
+    @FXML
+    private TextField userPassLog;
+
+    @FXML
+    private TextField userNameUp;
+
+    @FXML
+    private TextField emailUp;
+
+    @FXML
+    private TextField passUp;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -60,8 +70,7 @@ public class WelcomSignINUpController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(WelcomSignINUpController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }  
-    
+    }
     
     @FXML
     void goLeft(MouseEvent event) {
@@ -102,22 +111,24 @@ public class WelcomSignINUpController implements Initializable {
         window.setScene(registerScene1);
         window.show();
     }
-      
-      @FXML
-      protected void toTaskPage(ActionEvent event) throws IOException{
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
-    }
      
- @FXML
+     @FXML
       protected void signUp (ActionEvent event) throws IOException{
           
+        User user= new User();
+        user.setUserName(userNameUp.getText());
+        user.setEmail(emailUp.getText());
+        user.setPassword(passUp.getText());
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        
+        session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        String userId = (String)session.save(user);
+        tx.commit();
+        session.close();
+       
+        if(userId != " "){
           
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
@@ -127,6 +138,8 @@ public class WelcomSignINUpController implements Initializable {
         
         window.setScene(registerScene1);
         window.show();
+        
+        }
     }
 }
 
