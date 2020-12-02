@@ -5,43 +5,51 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #eac3c3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane prefHeight="400.0" prefWidth="600.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.0" minWidth="10.0" prefWidth="330.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="447.0" minWidth="10.0" prefWidth="230.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="220.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="203.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="190.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="167.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <VBox layoutX="14.0" layoutY="59.0" prefHeight="335.0" prefWidth="445.0">
          <children>
-            <Label id="NameLabel" prefHeight="35.0" prefWidth="87.0" text="Task name" textFill="WHITE" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Segoe UI Semilight" size="18.0" />
-               </font>
-            </Label>
-            <TextField id="NameField" opacity="0.59" prefHeight="27.0" prefWidth="229.0" style="-fx-background-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label id="Actionable" prefHeight="35.0" prefWidth="132.0" text="Can it be done?" textFill="WHITE" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Segoe UI Semilight" size="18.0" />
-               </font>
-            </Label>
-            <HBox id="ActionableRB" prefHeight="55.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox prefHeight="53.0" prefWidth="420.0" translateY="20.0">
                <children>
+                  <Label prefHeight="35.0" prefWidth="87.0" text="Task name" textFill="WHITE" translateY="20.0">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField opacity="0.59" prefHeight="27.0" prefWidth="229.0" style="-fx-background-radius: 7;" translateX="3.0" translateY="25.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="48.0" prefWidth="582.0" translateY="30.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="132.0" text="Can it be done?" textFill="WHITE" translateY="5.0">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="18.0" />
+                     </font>
+                  </Label>
+                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateX="10.0" translateY="15.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateX="9.0" translateY="15.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="55.0" prefWidth="582.0" translateY="30.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="327.0" text="Will this task take more than 2 minutes? " textFill="#fdfdff" translateY="5.0">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="18.0" />
+                     </font>
+                  </Label>
                   <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="19.0">
                      <font>
                         <Font size="14.0" />
@@ -54,32 +62,13 @@
                   </CheckBox>
                </children>
             </HBox>
-            <Label id="Time" prefHeight="35.0" prefWidth="327.0" text="Will this task take more than 2 minutes? " textFill="#fdfdff" GridPane.rowIndex="3">
-               <font>
-                  <Font name="Segoe UI Semilight" size="18.0" />
-               </font>
-            </Label>
-            <HBox id="TimeRB" prefHeight="55.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <HBox prefHeight="52.0" prefWidth="582.0" translateY="25.0">
                <children>
-                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="19.0">
+                  <Label prefHeight="34.0" prefWidth="242.0" text="Is this task done by you only? " textFill="WHITE" translateY="5.0">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Segoe UI Semilight" size="18.0" />
                      </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateY="20.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <Label id="whoDoesIt" prefHeight="34.0" prefWidth="242.0" text="Is this task done by you only? " textFill="WHITE" GridPane.rowIndex="4">
-               <font>
-                  <Font name="Segoe UI Semilight" size="18.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="52.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <children>
+                  </Label>
                   <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="15.0">
                      <font>
                         <Font size="14.0" />
@@ -92,32 +81,13 @@
                   </CheckBox>
                </children>
             </HBox>
-            <Label prefHeight="34.0" prefWidth="256.0" text="Does this task have a due date?" textFill="WHITE" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Segoe UI Semilight" size="18.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="63.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <HBox prefHeight="63.0" prefWidth="582.0" translateY="30.0">
                <children>
-                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="15.0">
+                  <Label prefHeight="34.0" prefWidth="256.0" text="Does this task have a due date?" textFill="WHITE" translateY="5.0">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Segoe UI Semilight" size="18.0" />
                      </font>
-                  </CheckBox>
-                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="No" textFill="#c26b6b" translateY="15.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <Label id="whoDoesIt" prefHeight="34.0" prefWidth="242.0" text="Are you waiting on anyone ? " textFill="WHITE" GridPane.rowIndex="6">
-               <font>
-                  <Font name="Segoe UI Semilight" size="18.0" />
-               </font>
-            </Label>
-            <HBox prefHeight="63.0" prefWidth="582.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-               <children>
+                  </Label>
                   <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="57.0" text="Yes" textFill="#c26b6b" translateY="15.0">
                      <font>
                         <Font size="14.0" />
@@ -131,21 +101,18 @@
                </children>
             </HBox>
          </children>
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
-      </GridPane>
-      <Button layoutX="497.0" layoutY="330.0" mnemonicParsing="false" onAction="#BackToTasks" opacity="0.59" prefHeight="45.0" prefWidth="87.0" style="-fx-background-color: white;" text="Add Task" textFill="#c26b6b">
-         <font>
-            <Font name="Segoe UI Semibold" size="13.0" />
-         </font>
-      </Button>
+      </VBox>
       <Label alignment="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="45.0" prefWidth="355.0" text="Add a Tasks" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semibold" size="30.0" />
          </font>
       </Label>
       <Button layoutX="498.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToTasks" opacity="0.59" style="-fx-background-color: white;" text="Back To Tasks" textFill="#c26b6b">
+         <font>
+            <Font name="Segoe UI Semilight" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="510.0" layoutY="346.0" mnemonicParsing="false" onAction="#BackToTasks" opacity="0.59" style="-fx-background-color: white;" text="Add Task" textFill="#c26b6b">
          <font>
             <Font name="Segoe UI Semilight" size="12.0" />
          </font>
