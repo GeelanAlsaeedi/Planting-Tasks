@@ -1,5 +1,6 @@
 package plantingtask;
 
+import java.sql.SQLException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +10,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name="userinformation")
 public class User implements java.io.Serializable {
+
+    static void printSQLException(SQLException e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
     @Id
     @Column(name="user_name")
     private String UserName;
