@@ -61,32 +61,44 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void Min2N(ActionEvent event) {
-        
+    WhoDoesIt.setVisible(true);
+    WhoDoesItHB.setVisible(true);
     }
 
     @FXML
     void Min2Y(ActionEvent event) {
-
+    WhoDoesIt.setVisible(true);
+    WhoDoesItHB.setVisible(true);
     }
 
     @FXML
-    void SoloN(ActionEvent event) {
+    void SoloN(ActionEvent event) {     
+    DueDate.setVisible(true);
+    DueDateHB.setVisible(true);
+    waiting.setVisible(true);
+    waitingHB.setVisible(true);
 
     }
 
     @FXML
     void SoloY(ActionEvent event) {
-
+    DueDate.setVisible(true);
+    DueDateHB.setVisible(true);
     }
-
+    
+    @FXML
+    void canBeDoneN(ActionEvent event) {
+        //trash image
+    }
     @FXML
     void canBeDoneY(ActionEvent event) {
-        
+    Time.setVisible(true);
+    TimeHB.setVisible(true);
     }
 
     @FXML
     void dueN(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -115,12 +127,9 @@ public class AddTasksController implements Initializable {
     }   
      @FXML
     void totask(ActionEvent event) throws IOException {
-Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        
+        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         Scene registerScene1=new Scene(registerParent1);
-        
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
         window.setScene(registerScene1);
         window.show();
     }

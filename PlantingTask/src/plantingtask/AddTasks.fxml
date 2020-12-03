@@ -46,7 +46,7 @@
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#canBeDoneY" text="No" textFill="#c26b6b">
+                  <RadioButton mnemonicParsing="false" onAction="#canBeDoneN" text="No" textFill="#c26b6b">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
