@@ -71,23 +71,8 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Plant.fxml"));
     }
     
    
-    //Revietive from database.
-     @FXML
-    public void alternateViewTable(Connection con) throws IOException, SQLException{
-        
-    String query = "select score from User";
     
-    try (Statement stmt = con.createStatement()) {
-      ResultSet rs = stmt.executeQuery(query);
-      while (rs.next()) {
-        String ScoreCol = rs.getString(1);
-      
-        System.out.println(ScoreCol);
-      }
-    } catch (SQLException e) {
-      User.printSQLException(e);
-    }
-  }
+  
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

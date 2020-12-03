@@ -15,7 +15,7 @@ public class HibernateUtil {
             Configuration configuration = new Configuration().configure("/plantingtask/hibernate.cfg.xml");
             ServiceRegistry serviceRegistry= new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             configuration.addAnnotatedClass(User.class);
-            configuration.addAnnotatedClass(Task_POJO.class);
+            //configuration.addAnnotatedClass(Task_POJO.class);
             // builds a session factory from the service registry
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);  
         } catch (Throwable ex) {

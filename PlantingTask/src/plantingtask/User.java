@@ -11,9 +11,7 @@ import javax.persistence.Table;
 @Table(name="userinformation")
 public class User implements java.io.Serializable {
 
-    static void printSQLException(SQLException e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
   
     @Id
@@ -25,8 +23,7 @@ public class User implements java.io.Serializable {
     private String Password;
     @Column(name="Score")
     private double score;
-    @Column(name="log")
-    private boolean log;
+   
     
 
     public User() {
