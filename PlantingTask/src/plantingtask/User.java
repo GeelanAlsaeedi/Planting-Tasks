@@ -1,19 +1,18 @@
 package plantingtask;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 @Entity
 @Table(name="userinformation")
 public class User implements java.io.Serializable {
 
-   
-
-  
     @Id
     @Column(name="user_name")
     private String UserName;
@@ -23,7 +22,11 @@ public class User implements java.io.Serializable {
     private String Password;
     @Column(name="Score")
     private double score;
-   
+	//    @Column(name="log")
+//    private boolean log;
+    @Transient
+    private ArrayList<Task_POJO> tasks;
+
     
 
     public User() {

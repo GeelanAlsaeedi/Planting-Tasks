@@ -7,14 +7,7 @@ package plantingtask;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,9 +16,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
 
 /**
  * FXML Controller class
@@ -34,6 +26,7 @@ import javafx.stage.Stage;
  */
 public class TasksController implements Initializable {
    
+    private String USER;
             
       @FXML
     void backtowelcome(ActionEvent event) throws IOException {
@@ -49,13 +42,19 @@ public class TasksController implements Initializable {
     
       @FXML
     void toaddtask(ActionEvent event) throws IOException {
-Parent registerParent1 = FXMLLoader.load(getClass().getResource("AddTasks.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddTasks.fxml"));
+        Parent registerParent1 = loader.load();
         
-        Scene registerScene1=new Scene(registerParent1);
+        Scene WelcomeScene = new Scene(registerParent1);
+        
+        //access the controller and call a method
+        AddTasksController controller = loader.getController();
+        controller.initData(USER);
         
         Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
         
-        window.setScene(registerScene1);
+        window.setScene(WelcomeScene);
         window.show();
     }
            @FXML
@@ -69,11 +68,12 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Plant.fxml"));
         window.setScene(registerScene1);
         window.show();
     }
-    
+     public void initData(String userN)
+    {
+        USER = userN;
+    }
    
-    
-  
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

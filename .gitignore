@@ -13,10 +13,17 @@ PlantingTask/nbproject/private/private.xml
 PlantingTask/nbproject/private/private.properties
 PlantingTask/nbproject/private/private.xml
 PlantingTask/nbproject/private/private.xml
+PlantingTask/nbproject/project.properties
 PlantingTask/src/plantingtask/User.java
 PlantingTask/src/plantingtask/TasksController.java
 PlantingTask/src/plantingtask/HibernateUtil.java
 PlantingTask/nbproject/project.properties
 PlantingTask/nbproject/private/private.properties
+
 PlantingTask/src/plantingtask/Plant.fxml
 PlantingTask/src/plantingtask/Plant.fxml
+
+PlantingTask/nbproject/project.properties
+PlantingTask/nbproject/private/private.properties
+PlantingTask/nbproject/private/private.xml
+
