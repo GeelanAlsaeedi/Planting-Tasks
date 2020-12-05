@@ -7,14 +7,7 @@ package plantingtask;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +16,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -71,24 +62,24 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Plant.fxml"));
     }
     
    
-    //Revietive from database.
-     @FXML
-    public void alternateViewTable(Connection con) throws IOException, SQLException{
-        
-    String query = "select score from User";
-    
-    try (Statement stmt = con.createStatement()) {
-      ResultSet rs = stmt.executeQuery(query);
-      while (rs.next()) {
-        String ScoreCol = rs.getString(1);
-      
-        System.out.println(ScoreCol);
-      }
-    } catch (SQLException e) {
-      User.printSQLException(e);
-    }
-  }
-    
+//    //Revietive from database.
+//     @FXML
+//    public void alternateViewTable(Connection con) throws IOException, SQLException{
+//        
+//    String query = "select score from User";
+//    
+//    try (Statement stmt = con.createStatement()) {
+//      ResultSet rs = stmt.executeQuery(query);
+//      while (rs.next()) {
+//        String ScoreCol = rs.getString(1);
+//      
+//        System.out.println(ScoreCol);
+//      }
+//    } catch (SQLException e) {
+//      User.printSQLException(e);
+//    }
+//  }
+//    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

@@ -27,9 +27,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.hibernate.*;
 
-
-
 public class WelcomSignINUpController implements Initializable {
+    private String loggedInUser;
     @FXML
     private Pane panel;
     @FXML
@@ -82,7 +81,7 @@ public class WelcomSignINUpController implements Initializable {
     @FXML
     void goLeft(MouseEvent event) {
         TranslateTransition trans = new TranslateTransition();
-        trans.setDuration(Duration.seconds(2));
+        trans.setDuration(Duration.seconds(1));
         trans.setNode(panel);
         trans.setToX(308);
         trans.play();
@@ -91,7 +90,7 @@ public class WelcomSignINUpController implements Initializable {
     @FXML
     void goRight(MouseEvent event) {
         TranslateTransition trans = new TranslateTransition();
-        trans.setDuration(Duration.seconds(2));
+        trans.setDuration(Duration.seconds(1));
         trans.setNode(panel);
         trans.setToX(0);
         trans.play();
@@ -105,7 +104,6 @@ public class WelcomSignINUpController implements Initializable {
         //get values from textFields at sign In page & and store in variables 
         String Uname= userNameLog.getText();
         String Upass= userPassLog.getText();
-        boolean log;
         
         if(Uname.equals("") || Upass.equals("")){
           signInErrMsg.setText("Fill all the required fields");
@@ -120,12 +118,12 @@ public class WelcomSignINUpController implements Initializable {
             session.close();
 
             //Declare variables to store attribute's vlause of User objects from list
-            String userName = null, userPass = null; 
+            String userName = null, userPass = null;//for comparision
             for(User u: userList){
-               if(u.getUserName().equals(Uname) && u.getPassword().equals(Upass)){
+               if(u.getUserName().equals(Uname) && u.getPassword().equals(Upass)){//if the database has any 
                    userName= u.getUserName();
                    userPass= u.getPassword();           
-                  
+                   setLoggedInUser(u.getUserName());   
                    Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
                    Scene registerScene1=new Scene(registerParent1);
 
@@ -135,13 +133,14 @@ public class WelcomSignINUpController implements Initializable {
                    break;
                }
             }
-            if(userName==null || userPass==null)
+            if(userName==null || userPass==null)//if fields are empty 
             {signInErrMsg.setText("User Name or Password is incorrect");}       
         }
     }
        
       @FXML
       protected void ConGuest(ActionEvent event) throws IOException{
+        setLoggedInUser("Guest");
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
         
         Scene registerScene1=new Scene(registerParent1);
@@ -173,7 +172,7 @@ public class WelcomSignINUpController implements Initializable {
          session.close();
        
          if(userId != ""){
-             
+          setLoggedInUser(user.getUserName());   
           Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
           Scene registerScene1=new Scene(registerParent1);
 
@@ -182,6 +181,13 @@ public class WelcomSignINUpController implements Initializable {
           window.show();
          }
         }
+    }
+    public String getLoggedInUser() {
+        return loggedInUser;
+    }
+
+    public void setLoggedInUser(String loggedInUser) {
+        this.loggedInUser = loggedInUser;
     }
 }
 

@@ -8,40 +8,47 @@ package plantingtask;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name= "tasks")
-public class Task_POJO implements java.io.Serializable{
-    
+@Table(name = "taskdata")
+public class Task_POJO implements java.io.Serializable {
+
+    //private User SelectedUser;
     @Id
-    @Column(name="taskID")
+    @Column(name = "taskID")
     private int taskID;
-    
-    @Column(name="taskName")
+
+    @Column(name = "taskName")
     private String taskName;
-    
-    @Column(name="taskScore")
+
+    @Column(name = "taskScore")
     private double taskScore;
-    
-    @Column(name="taskState")
+
+    @Column(name = "taskState")
     private String taskState;
-    
-    @OneToMany
-    @JoinColumn(name="user_name")
-    private User user;
+
+    @Column(name = "userName")
+    private String userName;
 
     public Task_POJO() {
     }
 
-    public Task_POJO(int taskID, String taskName, double taskScore, String taskState, User user) {
+    public Task_POJO(int taskID, String taskName, double taskScore, String taskState, String userName) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.taskScore = taskScore;
         this.taskState = taskState;
-        this.user = user;
+        this.userName = userName;//SelectedUser.getUserName();
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public void setTaskID(int taskID) {
@@ -60,10 +67,6 @@ public class Task_POJO implements java.io.Serializable{
         this.taskState = taskState;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public int getTaskID() {
         return taskID;
     }
@@ -79,9 +82,4 @@ public class Task_POJO implements java.io.Serializable{
     public String getTaskState() {
         return taskState;
     }
-
-    public User getUser() {
-        return user;
-    }
- 
 }

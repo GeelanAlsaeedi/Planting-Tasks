@@ -1,20 +1,17 @@
 package plantingtask;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 
 @Entity
 @Table(name="userinformation")
 public class User implements java.io.Serializable {
-
-    static void printSQLException(SQLException e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
   
     @Id
     @Column(name="user_name")
@@ -25,8 +22,10 @@ public class User implements java.io.Serializable {
     private String Password;
     @Column(name="Score")
     private double score;
-    @Column(name="log")
-    private boolean log;
+//    @Column(name="log")
+//    private boolean log;
+    @Transient
+    private ArrayList<Task_POJO> tasks;
     
 
     public User() {
