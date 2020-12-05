@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f3f5;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="plantingtask.PlantController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f3f5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.PlantController">
        <children>
       <VBox layoutX="24.0" layoutY="14.0" prefHeight="107.0" prefWidth="164.0">
          <children>
@@ -27,12 +27,12 @@
                   <Font name="Segoe UI Semilight" size="20.0" />
                </font>
             </Label>
-            <CheckBox mnemonicParsing="false" translateY="2.0" />
-            <CheckBox mnemonicParsing="false" translateY="4.0" />
-            <CheckBox mnemonicParsing="false" translateY="6.0" />
-            <CheckBox mnemonicParsing="false" translateY="8.0" />
-            <CheckBox mnemonicParsing="false" translateY="10.0" />
-            <CheckBox mnemonicParsing="false" translateY="12.0" />
+            <CheckBox id="cb1" fx:id="cb1" mnemonicParsing="false" translateY="2.0" />
+            <CheckBox id="cb2" fx:id="cb2" mnemonicParsing="false" translateY="4.0" />
+            <CheckBox id="cb3" fx:id="cb3" mnemonicParsing="false" translateY="6.0" />
+            <CheckBox id="cb4" fx:id="cb4" mnemonicParsing="false" translateY="8.0" />
+            <CheckBox id="cb5" fx:id="cb5" mnemonicParsing="false" translateY="10.0" />
+            <CheckBox id="cb6" fx:id="cb6" mnemonicParsing="false" translateY="12.0" />
          </children>
       </VBox>
       <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#backtotask" opacity="0.59" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">

@@ -18,3 +18,5 @@ PlantingTask/src/plantingtask/TasksController.java
 PlantingTask/src/plantingtask/HibernateUtil.java
 PlantingTask/nbproject/project.properties
 PlantingTask/nbproject/private/private.properties
+PlantingTask/src/plantingtask/Plant.fxml
+PlantingTask/src/plantingtask/Plant.fxml
