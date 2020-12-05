@@ -29,6 +29,7 @@ import org.hibernate.Transaction;
  * @author Joman
  */
 public class AddTasksController implements Initializable {
+
     private double score = 0;
     private String taskState;
     private String USER;
@@ -61,129 +62,114 @@ public class AddTasksController implements Initializable {
 
     @FXML
     private HBox waitingHB;
-    
+
     @FXML
     private DatePicker datePicker;
-    
+
     @FXML
     void Min2N(ActionEvent event) {
         score = score + 500;
-        System.out.println("the score: "+ score);
-    WhoDoesIt.setVisible(true);
-    WhoDoesItHB.setVisible(true);
+        System.out.println("the score: " + score);
+        WhoDoesIt.setVisible(true);
+        WhoDoesItHB.setVisible(true);
     }
 
     @FXML
     void Min2Y(ActionEvent event) {
         score = score + 1000;
-        System.out.println("the score: "+ score);
-    WhoDoesIt.setVisible(true);
-    WhoDoesItHB.setVisible(true);
+        System.out.println("the score: " + score);
+        WhoDoesIt.setVisible(true);
+        WhoDoesItHB.setVisible(true);
     }
 
     @FXML
-    void SoloN(ActionEvent event) { 
+    void SoloN(ActionEvent event) {
         score = score + 500;
-        System.out.println("the score: "+ score);
-    DueDate.setVisible(true);
-    DueDateHB.setVisible(true);
-    waiting.setVisible(true);
-    waitingHB.setVisible(true);
-
+        System.out.println("the score: " + score);
+        DueDate.setVisible(true);
+        DueDateHB.setVisible(true);
+        waiting.setVisible(true);
+        waitingHB.setVisible(true);
     }
 
     @FXML
     void SoloY(ActionEvent event) {
         taskState = "Today";
         score = score + 500;
-        System.out.println("the score: "+ score);
-    DueDate.setVisible(true);
-    DueDateHB.setVisible(true);
+        System.out.println("the score: " + score);
+        DueDate.setVisible(true);
+        DueDateHB.setVisible(true);
     }
-    
+
     @FXML
     void canBeDoneN(ActionEvent event) {
         //trash image
         taskState = "cannot be set";
     }
+
     @FXML
     void canBeDoneY(ActionEvent event) {
-    score = score + 500;
-    System.out.println("the score: "+ score);
-    Time.setVisible(true);
-    TimeHB.setVisible(true);
+        score = score + 500;
+        System.out.println("the score: " + score);
+        Time.setVisible(true);
+        TimeHB.setVisible(true);
     }
 
     @FXML
     void dueN(ActionEvent event) {
         score = score + 500;
-        System.out.println("the score: "+ score);
+        System.out.println("the score: " + score);
     }
 
     @FXML
     void dueY(ActionEvent event) {
         score = score + 1000;
         datePicker.setVisible(true);
-        System.out.println("the score: "+ score);
+        System.out.println("the score: " + score);
     }
 
     @FXML
     void waitingN(ActionEvent event) {
         taskState = "Today";
         score = score + 500;
-        System.out.println("the score: "+ score);
+        System.out.println("the score: " + score);
     }
 
     @FXML
     void waitingY(ActionEvent event) {
         taskState = "Waiting";
         score = score + 500;
-        System.out.println("the score: "+ score);
+        System.out.println("the score: " + score);
     }
+
     @FXML
     void AddTask(ActionEvent event) throws IOException {
-        System.out.println("the score: "+ score);
-        String Tname= TaskNameField.getText();
-        USER = getUserName();
-        Task_POJO task = new Task_POJO(0 , Tname, score, taskState, USER);
-        
+        System.out.println("the score: " + score);
+        String Tname = TaskNameField.getText();
+        Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER);
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(task);
         tx.commit();
         session.close();
-        System.out.println("inserted a contact: "+ task.getTaskName());
-       
+        System.out.println("inserted a contact: " + task.getTaskName());
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO String Uname= TaskNameField.getText();
-    }   
-     @FXML
+    }
+
+    @FXML
     void totask(ActionEvent event) throws IOException {
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        Scene registerScene1=new Scene(registerParent1);
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene registerScene1 = new Scene(registerParent1);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(registerScene1);
         window.show();
     }
-    
-    private String getUserName() throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("WelcomSignINUp.fxml"));
-        Parent AddTaskParent = loader.load();
-        
-        Scene tableViewScene = new Scene(AddTaskParent);
-        
-        //access the controller and call a method
-        WelcomSignINUpController controller = loader.getController();
-        String userN = controller.getLoggedInUser();
-        
-        //This line gets the Stage information
-//        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-//        
-//        window.setScene(tableViewScene);
-//        window.show();
-        return userN;
+
+    public void initData(String userN) {
+        USER = userN;
     }
 }
