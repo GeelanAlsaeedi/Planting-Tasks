@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -36,6 +37,15 @@ public class TasksController implements Initializable {
     @FXML
     private TextField TotalScore;
 
+        @FXML
+    private ListView<?> AllTasks;
+
+    @FXML
+    private ListView<?> TodayTasks;
+
+    @FXML
+    private ListView<?> Processing;
+    
     @FXML
     void backtowelcome(ActionEvent event) throws IOException {
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
