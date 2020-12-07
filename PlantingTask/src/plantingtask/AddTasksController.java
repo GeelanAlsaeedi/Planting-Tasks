@@ -7,6 +7,10 @@ package plantingtask;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +24,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,9 +35,11 @@ import org.hibernate.Transaction;
  */
 public class AddTasksController implements Initializable {
 
-    private double score = 0;
+    private int score = 0;
     private String taskState;
     private String USER;
+    private java.util.Date Due;
+
     @FXML
     private TextField TaskNameField;
 
@@ -146,7 +153,10 @@ public class AddTasksController implements Initializable {
     void AddTask(ActionEvent event) throws IOException {
         System.out.println("the score: " + score);
         String Tname = TaskNameField.getText();
-        Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER);
+        java.util.Date Due = java.sql.Date.valueOf(datePicker.getValue());
+        taskState = checkStatus(Due);
+        Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER, Due);
+        //storeScore();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(task);
@@ -172,4 +182,59 @@ public class AddTasksController implements Initializable {
     public void initData(String userN) {
         USER = userN;
     }
+
+    private String checkStatus(Date dueDate) {
+        String state ;
+        System.out.println("the date is: " + dueDate);
+        // get current date and format it just like the one we used in the database 
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateobj = new Date();
+        System.out.println(df.format(dateobj));
+        
+        //variables to compare monthes 
+        String monthNow = (df.format(dateobj)).substring(5,7); 
+        String monthDue = dueDate.toString().substring(5,7); 
+        int intmonthNow =Integer.parseInt(monthNow); 
+        int intmonthDue =Integer.parseInt(monthDue); 
+        System.out.println("month now "+intmonthNow + " due date "+ intmonthDue);
+        
+        //variables to compare days 
+        String DayNow = (df.format(dateobj)).substring(8,10); 
+        String DayDue = dueDate.toString().substring(8,10); 
+        int intDayNow =Integer.parseInt(DayNow); 
+        int intDayDue =Integer.parseInt(DayDue); 
+        System.out.println("Day now "+intDayNow + " due date "+ intDayDue);
+        
+        //comarition and status determination 
+        //if the due date has past or it has 2 or less days to come we will set the status to Today
+        //other wise the task might wait 
+            if(intmonthNow == intmonthDue){
+                if((intDayDue-intDayNow)<=2){
+                    state = "Today";
+                }else
+                state = "All";  
+            }else  
+                state = "All"; 
+        return state;
+            
+    }
+//
+//    private void storeScore() {
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
+//        List<User> userList = null;
+//        String queryStr = "from User";//
+//            Query query = session.createQuery(queryStr);
+//            userList = query.list();
+//        for (User u : userList) {
+//            if (u.getUserName().equals(USER)) {//if the database has any 
+//                u = (User) session.get(User.class, USER);
+//                score = score + u.getScore();
+//                u.setScore(score);
+//                session.getTransaction().commit();
+//                session.close();
+//                System.out.println("user "+ u.getUserName() +" score is updated now it's: "+u.getScore());
+//            }
+//        }    
+//    }
 }
