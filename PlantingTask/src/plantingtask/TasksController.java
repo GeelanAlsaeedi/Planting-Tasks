@@ -7,6 +7,7 @@ package plantingtask;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,9 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  * FXML Controller class
@@ -25,9 +29,13 @@ import javafx.fxml.FXMLLoader;
  * @author Joman
  */
 public class TasksController implements Initializable {
-   
+    private int UserTotalScore;
     private String USER;
             
+    
+    @FXML
+    private TextField TotalScore;
+
       @FXML
     void backtowelcome(ActionEvent event) throws IOException {
       Parent registerParent1 = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
@@ -71,12 +79,29 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Plant.fxml"));
      public void initData(String userN)
     {
         USER = userN;
+        System.out.println("userName is "+ USER + userN);
+        Score();
     }
-   
+   public void Score (){
+       Session session = HibernateUtil.getSessionFactory().openSession();
+       session = HibernateUtil.getSessionFactory().openSession();
+        List<User> userList = null;
+        String queryStr = "from User";
+        Query query = session.createQuery(queryStr);
+        userList = query.list();
+        session.close();
+        for(User u: userList){
+            if (u.getUserName().equals(USER)){
+                UserTotalScore = u.getScore();
+                System.out.println(UserTotalScore+" ");
+            }
+        }
+    TotalScore.setText(UserTotalScore + " ");
+   }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //Score();
     } 
        
      }
