@@ -7,6 +7,7 @@ package plantingtask;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,9 +32,10 @@ import org.hibernate.Transaction;
  */
 public class AddTasksController implements Initializable {
 
-    private double score = 0;
+    private int score = 0;
     private String taskState;
     private String USER;
+    private int totalScore = 0;
     @FXML
     private TextField TaskNameField;
 
@@ -147,6 +150,7 @@ public class AddTasksController implements Initializable {
         System.out.println("the score: " + score);
         String Tname = TaskNameField.getText();
         Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER);
+        storeScore();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(task);
@@ -171,5 +175,24 @@ public class AddTasksController implements Initializable {
 
     public void initData(String userN) {
         USER = userN;
+    }
+
+    private void storeScore() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List<User> userList = null;
+        String queryStr = "from User";//
+            Query query = session.createQuery(queryStr);
+            userList = query.list();
+        for (User u : userList) {
+            if (u.getUserName().equals(USER)) {//if the database has any 
+                u = (User) session.get(User.class, USER);
+                score = score + u.getScore();
+                u.setScore(score);
+                session.getTransaction().commit();
+                session.close();
+                System.out.println("user "+ u.getUserName() +" score is updated now it's: "+u.getScore());
+            }
+        }    
     }
 }
