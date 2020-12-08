@@ -125,6 +125,7 @@ public class AddTasksController implements Initializable {
     @FXML
     void dueN(ActionEvent event) {
         taskState = "All";
+        Due = null;
         score = score + 500;
         System.out.println("the score: " + score);
     }
@@ -149,15 +150,19 @@ public class AddTasksController implements Initializable {
         score = score + 500;
         System.out.println("the score: " + score);
     }
+    
+    @FXML
+    void addDate(ActionEvent event) {
+        Due = java.sql.Date.valueOf(datePicker.getValue());
+    }
 
     @FXML
     void AddTask(ActionEvent event) throws IOException {
         System.out.println("the score: " + score);
         String Tname = TaskNameField.getText();
-        java.util.Date Due = java.sql.Date.valueOf(datePicker.getValue());
-        if (taskState !=  "Waiting")
+        if (taskState !=  "Waiting" && Due != null)
         taskState = checkStatus(Due);
-        Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER, Due);
+        Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER, Due , "not done");
         //storeScore();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -194,8 +199,10 @@ public class AddTasksController implements Initializable {
         System.out.println(df.format(dateobj));
         
         //variables to compare monthes 
+        //get substring were months are
         String monthNow = (df.format(dateobj)).substring(5,7); 
-        String monthDue = dueDate.toString().substring(5,7); 
+        String monthDue = dueDate.toString().substring(5,7);
+        //make them into integers
         int intmonthNow =Integer.parseInt(monthNow); 
         int intmonthDue =Integer.parseInt(monthDue); 
         System.out.println("month now "+intmonthNow + " due date "+ intmonthDue);

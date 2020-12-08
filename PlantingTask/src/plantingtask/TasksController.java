@@ -35,7 +35,7 @@ public class TasksController implements Initializable {
 
     private int UserTotalScore;
     private String USER;
-    public ObservableList<Task_POJO> TodayTask;
+    public ObservableList<String> OBLTodayTask;
      
     @FXML
     private TextField TotalScore;
@@ -87,8 +87,9 @@ public class TasksController implements Initializable {
     public void initData(String userN) {
         USER = userN;
         System.out.println("userName is " + USER + userN);
-        Score();
         TodayTasks();
+        Score();
+        
     }
 
     public void Score() {
@@ -108,25 +109,25 @@ public class TasksController implements Initializable {
         TotalScore.setText(UserTotalScore + " ");
     }
     public void TodayTasks(){
-        ObservableList<String> TodayTask = FXCollections.observableArrayList();
-        TodayTasks.setItems(TodayTask);
+        OBLTodayTask = FXCollections.observableArrayList();
+        TodayTasks.setItems(OBLTodayTask);
         Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Task_POJO> tList = null;
+        List<Task_POJO> sList = null;
         String queryStr = "from Task_POJO";
         Query query = session.createQuery(queryStr);
-        tList = query.list();
+        sList = query.list();
         session.close();
-        for(Task_POJO task : tList)
+        for(Task_POJO s: sList)
         {
-          // if (task.getUserName().equals(USER))
-            TodayTask.add(task.getTaskName());
+            if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && "not done".equals(s.getIsDone()))
+               OBLTodayTask.add(s.getTaskName());
         }
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Score();
+       
     }
 
 }

@@ -109,7 +109,7 @@
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                   </RadioButton>
-                  <DatePicker fx:id="datePicker" prefHeight="14.0" prefWidth="86.0" visible="false" />
+                  <DatePicker fx:id="datePicker" onAction="#addDate" prefHeight="14.0" prefWidth="86.0" visible="false" />
                </children>
             </HBox>
                 <Label id="whoDoesIt" fx:id="waiting" prefHeight="34.0" prefWidth="242.0" text="Are you waiting on anyone ? " textFill="WHITE" visible="false" GridPane.rowIndex="6">

@@ -10,12 +10,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "taskdata")
 public class Task_POJO implements java.io.Serializable {
-    
+
     //private User SelectedUser;
     @Id
     @Column(name = "taskID")
@@ -41,15 +40,17 @@ public class Task_POJO implements java.io.Serializable {
 
     public Task_POJO() {
     }
-        public Task_POJO(int taskID, String taskName, double taskScore, String taskState, String userName, Date dueDate) {
+
+    public Task_POJO(int taskID, String taskName, double taskScore, String taskState, String userName, Date dueDate, String isDone) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.taskScore = taskScore;
         this.taskState = taskState;
         this.userName = userName;
         this.dueDate = dueDate;
+        this.isDone = isDone;
     }
-
+    
 
     public String getUserName() {
         return userName;
@@ -105,12 +106,5 @@ public class Task_POJO implements java.io.Serializable {
 
     public void setIsDone(String isDone) {
         this.isDone = isDone;
-    }
-    
-    public boolean isDone(){
-        if (getIsDone()=="not done")
-            return false;
-        else 
-            return true;
     }
 }
