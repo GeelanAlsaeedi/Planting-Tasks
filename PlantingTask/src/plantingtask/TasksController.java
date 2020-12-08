@@ -13,7 +13,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -36,11 +35,13 @@ public class TasksController implements Initializable {
     private int UserTotalScore;
     private String USER;
     public ObservableList<String> OBLTodayTask;
-     
+    public ObservableList<String> OBLWaitngTask;
+    public ObservableList<String> OBLAllTask;
+
     @FXML
     private TextField TotalScore;
 
-        @FXML
+    @FXML
     private ListView<String> AllTasks;
 
     @FXML
@@ -48,7 +49,7 @@ public class TasksController implements Initializable {
 
     @FXML
     private ListView<String> Processing;
-    
+
     @FXML
     void backtowelcome(ActionEvent event) throws IOException {
         Parent registerParent1 = FXMLLoader.load(getClass().getResource("WelcomSignINUp.fxml"));
@@ -89,7 +90,8 @@ public class TasksController implements Initializable {
         System.out.println("userName is " + USER + userN);
         TodayTasks();
         Score();
-        
+        Processing();
+        All();
     }
 
     public void Score() {
@@ -108,7 +110,8 @@ public class TasksController implements Initializable {
         }
         TotalScore.setText(UserTotalScore + " ");
     }
-    public void TodayTasks(){
+
+    public void TodayTasks() {
         OBLTodayTask = FXCollections.observableArrayList();
         TodayTasks.setItems(OBLTodayTask);
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -117,17 +120,51 @@ public class TasksController implements Initializable {
         Query query = session.createQuery(queryStr);
         sList = query.list();
         session.close();
-        for(Task_POJO s: sList)
-        {
-            if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && "not done".equals(s.getIsDone()))
-               OBLTodayTask.add(s.getTaskName());
+        for (Task_POJO s : sList) {
+            if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && "not done".equals(s.getIsDone())) {
+                OBLTodayTask.add(s.getTaskName());
+            }
+        }
+
+    }
+
+    public void Processing() {
+        OBLWaitngTask = FXCollections.observableArrayList();
+        Processing.setItems(OBLWaitngTask);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+        session.close();
+        for (Task_POJO s : sList) {
+            if (USER.equals(s.getUserName()) && "Waiting".equals(s.getTaskState()) && "not done".equals(s.getIsDone())) {
+                OBLWaitngTask.add(s.getTaskName());
+            }
+        }
+
+    }
+
+    public void All() {
+        OBLAllTask = FXCollections.observableArrayList();
+        AllTasks.setItems(OBLAllTask);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+        session.close();
+        for (Task_POJO s : sList) {
+            if (USER.equals(s.getUserName()) && "All".equals(s.getTaskState()) && "not done".equals(s.getIsDone())) {
+                OBLAllTask.add(s.getTaskName());
+            }
         }
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+
     }
 
 }
