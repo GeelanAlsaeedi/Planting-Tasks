@@ -26,19 +26,10 @@ import javafx.stage.Stage;
  * @author Geela
  */
 public class PlantController implements Initializable {
-@FXML
-    void backtotask(ActionEvent event) throws IOException {
-Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
+    
+        private String USER;
         
-        Scene registerScene1=new Scene(registerParent1);
-        
-        Stage window=(Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(registerScene1);
-        window.show();
-    }
-  
-     @FXML
+    @FXML
     private CheckBox cb1;
 
     @FXML
@@ -58,9 +49,8 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
 
     @FXML
     private ImageView imageviewforcb;
-    
-     
-   /* @FXML
+
+    /* @FXML
     void handlercheckbox(ActionEvent event) throws FileNotFoundException {
 
         if(cb1.isSelected()){
@@ -100,9 +90,7 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
                    return;
        }
     }*/
-    
-    
-   /* final static javafx.scene.image.Image plant1 = new javafx.scene.image.Image(TasksController.class.getResource("plant – 1@3x.png").toString());
+ /* final static javafx.scene.image.Image plant1 = new javafx.scene.image.Image(TasksController.class.getResource("plant – 1@3x.png").toString());
     final static javafx.scene.image.Image plant2 = new javafx.scene.image.Image(TasksController.class.getResource("plant – 2@2x.png").toString());
     final static javafx.scene.image.Image plant3 = new javafx.scene.image.Image(TasksController.class.getResource("plant – 3@3x.png").toString());
     final static javafx.scene.image.Image plant4 = new javafx.scene.image.Image(TasksController.class.getResource("plant – 4@3x.png").toString());
@@ -143,13 +131,28 @@ Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
 
 
        t.play();*/
-
     /**
      * Initializes the controller class.
      */
+        @FXML
+    void backtotask(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Tasks.fxml"));
+        Parent registerParent1 = loader.load();
+
+        Scene WelcomeScene = new Scene(registerParent1);
+
+        //access the controller and call a method
+        TasksController controller = loader.getController();
+        controller.initData(USER);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(WelcomeScene);
+        stage.show();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

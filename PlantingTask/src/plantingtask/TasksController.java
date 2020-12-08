@@ -125,7 +125,6 @@ public class TasksController implements Initializable {
                 OBLTodayTask.add(s.getTaskName());
             }
         }
-
     }
 
     public void Processing() {
@@ -142,7 +141,6 @@ public class TasksController implements Initializable {
                 OBLWaitngTask.add(s.getTaskName());
             }
         }
-
     }
 
     public void All() {
@@ -159,7 +157,6 @@ public class TasksController implements Initializable {
                 OBLAllTask.add(s.getTaskName());
             }
         }
-
     }
 
     @Override
