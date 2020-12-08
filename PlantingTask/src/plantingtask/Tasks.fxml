@@ -19,7 +19,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView fx:id="AllTasks" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
+            <ListView fx:id="AllTasks" onKeyPressed="#allTaskLV" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -27,8 +27,8 @@
       </VBox>
       <VBox layoutX="184.0" layoutY="128.0" prefHeight="72.0" prefWidth="29.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
-            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
+            <Button mnemonicParsing="false" onAction="#toAllTasks" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
+            <Button mnemonicParsing="false" onAction="#fromAllToTodayTasks" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -40,8 +40,8 @@
       </VBox>
       <VBox layoutX="385.0" layoutY="128.0" prefHeight="72.0" prefWidth="29.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
-            <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
+            <Button mnemonicParsing="false" onAction="#fromProcesstoTodyTasks" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
+            <Button mnemonicParsing="false" onAction="#toProcessingTasks" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -63,7 +63,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView fx:id="TodayTasks" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
+            <ListView fx:id="TodayTasks" onKeyPressed="#todayLV" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -76,7 +76,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView fx:id="Processing" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
+            <ListView fx:id="Processing" onKeyPressed="#processingLV" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
