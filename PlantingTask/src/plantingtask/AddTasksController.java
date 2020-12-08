@@ -10,7 +10,6 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +24,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -46,19 +44,10 @@ public class AddTasksController implements Initializable {
     private TextField TaskNameField;
 
     @FXML
-    private HBox ActionableHB;
-
-    @FXML
-    private ToggleGroup CBD;
-
-    @FXML
     private Label Time;
 
     @FXML
     private HBox TimeHB;
-
-    @FXML
-    private ToggleGroup M2;
 
     @FXML
     private Label WhoDoesIt;
@@ -67,16 +56,10 @@ public class AddTasksController implements Initializable {
     private HBox WhoDoesItHB;
 
     @FXML
-    private ToggleGroup SO;
-
-    @FXML
     private Label DueDate;
 
     @FXML
     private HBox DueDateHB;
-
-    @FXML
-    private ToggleGroup D;
 
     @FXML
     private DatePicker datePicker;
@@ -86,9 +69,6 @@ public class AddTasksController implements Initializable {
 
     @FXML
     private HBox waitingHB;
-
-    @FXML
-    private ToggleGroup WT;
 
     @FXML
     void Min2N(ActionEvent event) {

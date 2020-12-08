@@ -134,6 +134,11 @@ public class PlantController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    public void initData(String userN) {
+        USER = userN;
+    }
+    
         @FXML
     void backtotask(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();

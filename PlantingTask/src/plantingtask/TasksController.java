@@ -78,7 +78,7 @@ public class TasksController implements Initializable {
         window.show();
     }
 
-    /*@FXML
+    @FXML
     void toplant(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Plant.fxml"));
@@ -91,7 +91,7 @@ public class TasksController implements Initializable {
         window.setScene(WelcomeScene);
         window.show();
         
-    }*/
+    }
 
     public void initData(String userN) {
         USER = userN;
