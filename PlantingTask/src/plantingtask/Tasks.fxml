@@ -27,7 +27,7 @@
       </VBox>
       <VBox layoutX="184.0" layoutY="128.0" prefHeight="72.0" prefWidth="29.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="46.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
+            <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
             <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -40,7 +40,7 @@
       </VBox>
       <VBox layoutX="385.0" layoutY="128.0" prefHeight="72.0" prefWidth="29.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
+            <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&lt;" textFill="#c26b6b" />
             <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="29.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="&gt;" textFill="#c26b6b">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
