@@ -124,6 +124,7 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void dueN(ActionEvent event) {
+        taskState = "All";
         score = score + 500;
         System.out.println("the score: " + score);
     }
@@ -154,6 +155,7 @@ public class AddTasksController implements Initializable {
         System.out.println("the score: " + score);
         String Tname = TaskNameField.getText();
         java.util.Date Due = java.sql.Date.valueOf(datePicker.getValue());
+        if (taskState !=  "Waiting")
         taskState = checkStatus(Due);
         Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER, Due);
         //storeScore();

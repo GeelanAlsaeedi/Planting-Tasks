@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,18 +35,19 @@ public class TasksController implements Initializable {
 
     private int UserTotalScore;
     private String USER;
-
+    public ObservableList<Task_POJO> TodayTask;
+     
     @FXML
     private TextField TotalScore;
 
         @FXML
-    private ListView<?> AllTasks;
+    private ListView<String> AllTasks;
 
     @FXML
-    private ListView<?> TodayTasks;
+    private ListView<String> TodayTasks;
 
     @FXML
-    private ListView<?> Processing;
+    private ListView<String> Processing;
     
     @FXML
     void backtowelcome(ActionEvent event) throws IOException {
@@ -85,6 +88,7 @@ public class TasksController implements Initializable {
         USER = userN;
         System.out.println("userName is " + USER + userN);
         Score();
+        TodayTasks();
     }
 
     public void Score() {
@@ -102,6 +106,22 @@ public class TasksController implements Initializable {
             }
         }
         TotalScore.setText(UserTotalScore + " ");
+    }
+    public void TodayTasks(){
+        ObservableList<String> TodayTask = FXCollections.observableArrayList();
+        TodayTasks.setItems(TodayTask);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Task_POJO> tList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        tList = query.list();
+        session.close();
+        for(Task_POJO task : tList)
+        {
+          // if (task.getUserName().equals(USER))
+            TodayTask.add(task.getTaskName());
+        }
+
     }
 
     @Override

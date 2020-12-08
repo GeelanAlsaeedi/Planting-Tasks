@@ -19,7 +19,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
+            <ListView fx:id="AllTasks" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -63,7 +63,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
+            <ListView fx:id="TodayTasks" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -76,7 +76,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ListView prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
+            <ListView fx:id="Processing" prefHeight="300.0" prefWidth="70.0" style="-fx-background-color: #f5f3f5; -fx-background-radius: 8;" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -84,17 +84,20 @@
       </VBox>
       <Pane layoutY="293.0" prefHeight="107.0" prefWidth="600.0" style="-fx-background-color: #f5f3f5;">
          <children>
-            <VBox layoutX="127.0" layoutY="18.0" prefHeight="72.0" prefWidth="100.0">
+            <VBox layoutX="127.0" layoutY="18.0" prefHeight="72.0" prefWidth="150.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="91.0" text="Score" textFill="#c26b6b">
+                  <Label alignment="CENTER" prefHeight="39.0" prefWidth="73.0" text="Score" textFill="#c26b6b">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="TotalScore" editable="false" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;">
+                  <TextField fx:id="TotalScore" editable="false" opacity="0.59" prefHeight="28.0" prefWidth="147.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
                   </TextField>
                </children>
             </VBox>

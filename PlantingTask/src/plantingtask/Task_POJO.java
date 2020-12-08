@@ -35,6 +35,9 @@ public class Task_POJO implements java.io.Serializable {
 
     @Column(name = "dueDate")
     private Date dueDate;
+    
+    @Column(name ="Done")
+    private String isDone;
 
     public Task_POJO() {
     }
@@ -94,5 +97,20 @@ public class Task_POJO implements java.io.Serializable {
 
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
+    }
+    
+    public String getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(String isDone) {
+        this.isDone = isDone;
+    }
+    
+    public boolean isDone(){
+        if (getIsDone()=="not done")
+            return false;
+        else 
+            return true;
     }
 }
