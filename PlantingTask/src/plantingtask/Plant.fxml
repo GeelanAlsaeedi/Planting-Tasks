@@ -1,44 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f3f5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.PlantController">
-       <children>
-      <VBox layoutX="24.0" layoutY="14.0" prefHeight="107.0" prefWidth="164.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="133.0" text="Score" textFill="#c26b6b" translateX="2.0" translateY="3.0">
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Label>
-            <TextField opacity="0.59" style="-fx-background-color: #eac3c3;" translateX="2.0" translateY="4.0" />
-         </children>
-      </VBox>
-      <VBox layoutX="30.0" layoutY="101.0" opacity="0.59" prefHeight="226.0" prefWidth="164.0" spacing="10.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 8;">
-         <children>
-            <Label prefHeight="34.0" prefWidth="133.0" text="Today's Tasks:" textFill="#c26b6b">
-               <font>
-                  <Font name="Segoe UI Semilight" size="20.0" />
-               </font>
-            </Label>
-            <CheckBox id="cb1" fx:id="cb1" mnemonicParsing="false" translateY="2.0" />
-            <CheckBox id="cb2" fx:id="cb2" mnemonicParsing="false" translateY="4.0" />
-            <CheckBox id="cb3" fx:id="cb3" mnemonicParsing="false" translateY="6.0" />
-            <CheckBox id="cb4" fx:id="cb4" mnemonicParsing="false" translateY="8.0" />
-            <CheckBox id="cb5" fx:id="cb5" mnemonicParsing="false" translateY="10.0" />
-            <CheckBox id="cb6" fx:id="cb6" mnemonicParsing="false" translateY="12.0" />
-         </children>
-      </VBox>
-      <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#backtotask" opacity="0.59" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
-         <font>
-            <Font name="Segoe UI Semilight" size="12.0" />
-         </font>
-      </Button>
-   </children>
+    <children>
+        <VBox layoutX="24.0" layoutY="14.0" prefHeight="107.0" prefWidth="164.0">
+            <children>
+                <Label prefHeight="17.0" prefWidth="133.0" text="Score" textFill="#c26b6b" translateX="2.0" translateY="3.0">
+                    <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                    </font>
+                </Label>
+                <TextField opacity="0.59" style="-fx-background-color: #eac3c3;" translateX="2.0" translateY="4.0" />
+            </children>
+        </VBox>
+        <VBox layoutX="30.0" layoutY="101.0" opacity="0.59" prefHeight="226.0" prefWidth="164.0" spacing="10.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 8;">
+            <children>
+                <Label prefHeight="34.0" prefWidth="133.0" text="Today's Tasks:" textFill="#c26b6b">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="20.0" />
+                    </font>
+                </Label>
+                <HBox prefHeight="26.0" prefWidth="164.0" spacing="5.0">
+                    <children>
+                        <CheckBox id="cb1" fx:id="cb1" mnemonicParsing="false">
+                            <padding>
+                                <Insets left="3.0" />
+                            </padding>
+                        </CheckBox>
+                        <Label fx:id="task1" prefHeight="20.0" prefWidth="130.0" text="Label" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets top="3.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="27.0" prefWidth="164.0" spacing="5.0">
+                    <children>
+                        <CheckBox id="cb2" fx:id="cb2" mnemonicParsing="false">
+                            <padding>
+                                <Insets left="3.0" />
+                            </padding>
+                        </CheckBox>
+                        <Label fx:id="task2" prefHeight="20.0" prefWidth="130.0" text="Label" />
+                    </children>
+                    <padding>
+                        <Insets top="3.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="29.0" prefWidth="164.0" spacing="5.0">
+                    <children>
+                        <CheckBox id="cb3" fx:id="cb3" mnemonicParsing="false">
+                            <padding>
+                                <Insets left="3.0" />
+                            </padding>
+                        </CheckBox>
+                        <Label fx:id="task3" prefHeight="20.0" prefWidth="130.0" text="Label" />
+                    </children>
+                    <padding>
+                        <Insets top="3.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="28.0" prefWidth="164.0" spacing="5.0">
+                    <children>
+                        <CheckBox id="cb4" fx:id="cb4" mnemonicParsing="false">
+                            <padding>
+                                <Insets left="3.0" />
+                            </padding>
+                        </CheckBox>
+                        <Label fx:id="task4" prefHeight="20.0" prefWidth="130.0" text="Label" />
+                    </children>
+                    <padding>
+                        <Insets top="3.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="20.0" prefWidth="130.0" spacing="5.0">
+                    <padding>
+                        <Insets top="3.0" />
+                    </padding>
+               <children>
+                        <CheckBox id="cb6" fx:id="cb6" mnemonicParsing="false">
+                            <padding>
+                                <Insets left="3.0" />
+                            </padding>
+                        </CheckBox>
+                        <Label fx:id="task6" text="Label" />
+               </children>
+                </HBox>
+                <HBox prefHeight="20.0" prefWidth="130.0" spacing="5.0">
+                    <children>
+                        <CheckBox id="cb5" fx:id="cb5" mnemonicParsing="false">
+                            <padding>
+                                <Insets left="3.0" />
+                            </padding>
+                        </CheckBox>
+                        <Label fx:id="task5" text="Label" />
+                    </children>
+                    <padding>
+                        <Insets top="3.0" />
+                    </padding>
+                </HBox>
+            </children>
+         <padding>
+            <Insets bottom="15.0" left="4.0" top="4.0" />
+         </padding>
+        </VBox>
+        <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#backtotask" opacity="0.59" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
+            <font>
+                <Font name="Segoe UI Semilight" size="12.0" />
+            </font>
+        </Button>
+    </children>
 </Pane>
