@@ -298,6 +298,7 @@ public class PlantController implements Initializable {
         if (cb1.isSelected()) {
             scoresTF.setText(Integer.toString(allScore));
             allScore = allScore + taskScore1;
+            storeOverallScore();
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             taskObj = (Task_POJO) session.get(Task_POJO.class, task1ID);
@@ -319,6 +320,7 @@ public class PlantController implements Initializable {
         if (cb3.isSelected()) {
             scoresTF.setText(Integer.toString(allScore));
             allScore = allScore + taskScore3;
+            storeOverallScore();
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             taskObj = (Task_POJO) session.get(Task_POJO.class, task3ID);
@@ -329,6 +331,7 @@ public class PlantController implements Initializable {
         if (cb4.isSelected()) {
             scoresTF.setText(Integer.toString(allScore));
             allScore = allScore + taskScore4;
+            storeOverallScore();
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             taskObj = (Task_POJO) session.get(Task_POJO.class, task4ID);
@@ -339,6 +342,7 @@ public class PlantController implements Initializable {
         if (cb5.isSelected()) {
             scoresTF.setText(Integer.toString(allScore));
             allScore = allScore + taskScore5;
+            storeOverallScore();
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             taskObj = (Task_POJO) session.get(Task_POJO.class, task5ID);
@@ -349,6 +353,7 @@ public class PlantController implements Initializable {
         if (cb6.isSelected()) {
             scoresTF.setText(Integer.toString(allScore));
             allScore = allScore + taskScore6;
+            storeOverallScore();
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             taskObj = (Task_POJO) session.get(Task_POJO.class, task6ID);
