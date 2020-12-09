@@ -5,11 +5,11 @@
  */
 package plantingtask;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "taskdata")
@@ -32,16 +32,25 @@ public class Task_POJO implements java.io.Serializable {
     @Column(name = "userName")
     private String userName;
 
+    @Column(name = "dueDate")
+    private Date dueDate;
+    
+    @Column(name ="Done")
+    private String isDone;
+
     public Task_POJO() {
     }
 
-    public Task_POJO(int taskID, String taskName, double taskScore, String taskState, String userName) {
+    public Task_POJO(int taskID, String taskName, double taskScore, String taskState, String userName, Date dueDate, String isDone) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.taskScore = taskScore;
         this.taskState = taskState;
-        this.userName = userName;//SelectedUser.getUserName();
+        this.userName = userName;
+        this.dueDate = dueDate;
+        this.isDone = isDone;
     }
+    
 
     public String getUserName() {
         return userName;
@@ -81,5 +90,21 @@ public class Task_POJO implements java.io.Serializable {
 
     public String getTaskState() {
         return taskState;
+    }
+    
+    public Date getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
+    
+    public String getIsDone() {
+        return isDone;
+    }
+
+    public void setIsDone(String isDone) {
+        this.isDone = isDone;
     }
 }

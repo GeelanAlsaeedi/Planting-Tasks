@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -42,12 +43,15 @@
                 </Label>
                 <HBox id="ActionableRB" fx:id="ActionableHB" alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="582.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <children>
-                  <RadioButton mnemonicParsing="false" onAction="#canBeDoneY" text="Yes" textFill="#c26b6b">
+                  <RadioButton mnemonicParsing="false" onAction="#canBeDoneY" text="Yes" textFill="#c26b6b" toggleGroup="$CBD">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="CBD" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#canBeDoneN" text="No" textFill="#c26b6b">
+                  <RadioButton mnemonicParsing="false" onAction="#canBeDoneN" text="No" textFill="#c26b6b" toggleGroup="$CBD">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
@@ -65,8 +69,11 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="M2" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#Min2N" text="No" textFill="#c26b6b">
+                  <RadioButton mnemonicParsing="false" onAction="#Min2N" text="No" textFill="#c26b6b" toggleGroup="$M2">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
@@ -84,8 +91,11 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="SO" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#SoloN" text="No" textFill="#c26b6b">
+                  <RadioButton mnemonicParsing="false" onAction="#SoloN" text="No" textFill="#c26b6b" toggleGroup="$SO">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
@@ -103,13 +113,16 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="D" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#dueN" text="No" textFill="#c26b6b">
+                  <RadioButton mnemonicParsing="false" onAction="#dueN" text="No" textFill="#c26b6b" toggleGroup="$D">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                   </RadioButton>
-                  <DatePicker fx:id="datePicker" prefHeight="14.0" prefWidth="86.0" visible="false" />
+                  <DatePicker fx:id="datePicker" onAction="#addDate" prefHeight="14.0" prefWidth="86.0" visible="false" />
                </children>
             </HBox>
                 <Label id="whoDoesIt" fx:id="waiting" prefHeight="34.0" prefWidth="242.0" text="Are you waiting on anyone ? " textFill="WHITE" visible="false" GridPane.rowIndex="6">
@@ -123,8 +136,11 @@
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="WT" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" onAction="#waitingN" text="No" textFill="#c26b6b">
+                  <RadioButton mnemonicParsing="false" onAction="#waitingN" text="No" textFill="#c26b6b" toggleGroup="$WT">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>

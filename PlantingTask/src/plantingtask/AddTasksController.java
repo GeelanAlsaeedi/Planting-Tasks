@@ -7,6 +7,9 @@ package plantingtask;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -30,14 +34,14 @@ import org.hibernate.Transaction;
  */
 public class AddTasksController implements Initializable {
 
-    private double score = 0;
+    private int score = 0;
     private String taskState;
     private String USER;
-    @FXML
-    private TextField TaskNameField;
+    private java.util.Date Due;
+    int countToday=0, countAll=0, countWait=0;
 
     @FXML
-    private HBox ActionableHB;
+    private TextField TaskNameField;
 
     @FXML
     private Label Time;
@@ -58,16 +62,17 @@ public class AddTasksController implements Initializable {
     private HBox DueDateHB;
 
     @FXML
+    private DatePicker datePicker;
+
+    @FXML
     private Label waiting;
 
     @FXML
     private HBox waitingHB;
 
     @FXML
-    private DatePicker datePicker;
-
-    @FXML
     void Min2N(ActionEvent event) {
+        countAll++;
         score = score + 500;
         System.out.println("the score: " + score);
         WhoDoesIt.setVisible(true);
@@ -76,6 +81,7 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void Min2Y(ActionEvent event) {
+        countToday=countToday+10;
         score = score + 1000;
         System.out.println("the score: " + score);
         WhoDoesIt.setVisible(true);
@@ -94,7 +100,7 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void SoloY(ActionEvent event) {
-        taskState = "Today";
+        countToday= countToday + 1;
         score = score + 500;
         System.out.println("the score: " + score);
         DueDate.setVisible(true);
@@ -104,7 +110,10 @@ public class AddTasksController implements Initializable {
     @FXML
     void canBeDoneN(ActionEvent event) {
         //trash image
+        score = 0;
         taskState = "cannot be set";
+        Time.setVisible(false);
+        TimeHB.setVisible(false);
     }
 
     @FXML
@@ -117,6 +126,8 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void dueN(ActionEvent event) {
+        countAll++;
+        Due = null;
         score = score + 500;
         System.out.println("the score: " + score);
     }
@@ -130,23 +141,37 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void waitingN(ActionEvent event) {
-        taskState = "Today";
+        countAll++;
         score = score + 500;
         System.out.println("the score: " + score);
     }
 
     @FXML
     void waitingY(ActionEvent event) {
-        taskState = "Waiting";
+        countWait= countWait+100;
         score = score + 500;
         System.out.println("the score: " + score);
+    }
+    
+    @FXML
+    void addDate(ActionEvent event) {
+        Due = java.sql.Date.valueOf(datePicker.getValue());
+        checkStatus(Due);
     }
 
     @FXML
     void AddTask(ActionEvent event) throws IOException {
         System.out.println("the score: " + score);
         String Tname = TaskNameField.getText();
-        Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER);
+        if (countAll > countWait && countAll > countToday){
+            taskState="All";
+        }else if (countToday > countWait){
+            taskState="Today";
+        }else 
+            taskState = "Waiting";
+        
+        Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER, Due , "not done");
+        //storeScore();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(task);
@@ -162,14 +187,77 @@ public class AddTasksController implements Initializable {
 
     @FXML
     void totask(ActionEvent event) throws IOException {
-        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-        Scene registerScene1 = new Scene(registerParent1);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(registerScene1);
-        window.show();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Tasks.fxml"));
+        Parent registerParent1 = loader.load();
+
+        Scene WelcomeScene = new Scene(registerParent1);
+
+        //access the controller and call a method
+        TasksController controller = loader.getController();
+        controller.initData(USER);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(WelcomeScene);
+        stage.show();
     }
 
     public void initData(String userN) {
         USER = userN;
     }
+
+    private void checkStatus(Date dueDate) {
+        String state ;
+        System.out.println("the date is: " + dueDate);
+        // get current date and format it just like the one we used in the database 
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateobj = new Date();
+        System.out.println(df.format(dateobj));
+        
+        //variables to compare monthes 
+        //get substring were months are
+        String monthNow = (df.format(dateobj)).substring(5,7); 
+        String monthDue = dueDate.toString().substring(5,7);
+        //make them into integers
+        int intmonthNow =Integer.parseInt(monthNow); 
+        int intmonthDue =Integer.parseInt(monthDue); 
+        System.out.println("month now "+intmonthNow + " due date "+ intmonthDue);
+        
+        //variables to compare days 
+        String DayNow = (df.format(dateobj)).substring(8,10); 
+        String DayDue = dueDate.toString().substring(8,10); 
+        int intDayNow =Integer.parseInt(DayNow); 
+        int intDayDue =Integer.parseInt(DayDue); 
+        System.out.println("Day now "+intDayNow + " due date "+ intDayDue);
+        
+        //comarition and status determination 
+        //if the due date has past or it has 2 or less days to come we will set the status to Today
+        //other wise the task might wait 
+            if(intmonthNow == intmonthDue){
+                if((intDayDue-intDayNow)<=2){
+                    countToday = countToday +10;
+                }else
+                countAll ++;  
+            }else  
+                countAll++; 
+            
+    }
+//
+//    private void storeScore() {
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
+//        List<User> userList = null;
+//        String queryStr = "from User";//
+//            Query query = session.createQuery(queryStr);
+//            userList = query.list();
+//        for (User u : userList) {
+//            if (u.getUserName().equals(USER)) {//if the database has any 
+//                u = (User) session.get(User.class, USER);
+//                score = score + u.getScore();
+//                u.setScore(score);
+//                session.getTransaction().commit();
+//                session.close();
+//                System.out.println("user "+ u.getUserName() +" score is updated now it's: "+u.getScore());
+//            }
+//        }    
+//    }
 }

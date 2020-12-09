@@ -154,12 +154,8 @@ public class WelcomSignINUpController implements Initializable {
 
         //access the controller and call a method
         TasksController controller = loader.getController();
-        controller.initData(loggedInUser);
-//        Parent registerParent1 = FXMLLoader.load(getClass().getResource("Tasks.fxml"));
-//        
-//        Scene registerScene1=new Scene(registerParent1);
+        controller.initData(getLoggedInUser());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
         stage.setScene(WelcomeScene);
         stage.show();
     }
@@ -193,7 +189,7 @@ public class WelcomSignINUpController implements Initializable {
 
                 //access the controller and call a method
                 TasksController controller = loader.getController();
-                controller.initData(loggedInUser);
+                controller.initData(getLoggedInUser());
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
                 window.setScene(WelcomeScene);
