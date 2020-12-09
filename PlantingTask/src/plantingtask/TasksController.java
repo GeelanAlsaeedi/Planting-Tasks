@@ -303,7 +303,7 @@ public class TasksController implements Initializable {
     void todayLV(KeyEvent event) {
         String str =TodayTasks.getSelectionModel().getSelectedItem();
         
-        Session session = HibernateUtil.getSessionFactory().openSession();
+         Session session = HibernateUtil.getSessionFactory().openSession();
          session.beginTransaction();
          List<Task_POJO> sList = null;
          String queryStr = "from Task_POJO";
