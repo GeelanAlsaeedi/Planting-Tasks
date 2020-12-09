@@ -375,8 +375,20 @@ public class TasksController implements Initializable {
         }
         Processing.requestFocus();
     }
-    
-    
+    @FXML
+    void removeTask(ActionEvent event) {
+        
+        if (TodayTasks.getSelectionModel().getSelectedItems()!=null ){
+            String today =TodayTasks.getSelectionModel().getSelectedItem();
+            OBLTodayTask.remove(today);
+   
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         session.beginTransaction();
+         session.delete(TodayTasks.getSelectionModel().getSelectedItem());
+          session.getTransaction().commit();
+          session.close();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
