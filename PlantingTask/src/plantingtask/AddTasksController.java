@@ -169,9 +169,7 @@ public class AddTasksController implements Initializable {
             taskState="Today";
         }else 
             taskState = "Waiting";
-        
         Task_POJO task = new Task_POJO(0, Tname, score, taskState, USER, Due , "not done");
-        //storeScore();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(task);
@@ -241,23 +239,4 @@ public class AddTasksController implements Initializable {
                 countAll++; 
             
     }
-//
-//    private void storeScore() {
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//        List<User> userList = null;
-//        String queryStr = "from User";//
-//            Query query = session.createQuery(queryStr);
-//            userList = query.list();
-//        for (User u : userList) {
-//            if (u.getUserName().equals(USER)) {//if the database has any 
-//                u = (User) session.get(User.class, USER);
-//                score = score + u.getScore();
-//                u.setScore(score);
-//                session.getTransaction().commit();
-//                session.close();
-//                System.out.println("user "+ u.getUserName() +" score is updated now it's: "+u.getScore());
-//            }
-//        }    
-//    }
 }
