@@ -384,7 +384,54 @@ public class TasksController implements Initializable {
    
          Session session = HibernateUtil.getSessionFactory().openSession();
          session.beginTransaction();
-         session.delete(TodayTasks.getSelectionModel().getSelectedItem());
+         List<Task_POJO> sList = null;
+         String queryStr = "from Task_POJO";
+         Query query = session.createQuery(queryStr);
+         sList = query.list();
+         for (Task_POJO s : sList) {
+            if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && today.equals(s.getTaskName())) {
+               session.delete(s); 
+               break;
+            } 
+        }
+          session.getTransaction().commit();
+          session.close();
+        }
+            if(Processing.getSelectionModel().getSelectedItems()!=null){
+          String process =Processing.getSelectionModel().getSelectedItem();
+            OBLWaitngTask.remove(process);
+   
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         session.beginTransaction();
+         List<Task_POJO> sList = null;
+         String queryStr = "from Task_POJO";
+         Query query = session.createQuery(queryStr);
+         sList = query.list();
+         for (Task_POJO s : sList) {
+            if (USER.equals(s.getUserName()) && "Waiting".equals(s.getTaskState()) && process.equals(s.getTaskName())) {
+               session.delete(s); 
+               break;
+            } 
+        }
+          session.getTransaction().commit();
+          session.close();  
+        }
+        if(AllTasks.getSelectionModel().getSelectedItems()!=null){
+            String process =AllTasks.getSelectionModel().getSelectedItem();
+            OBLAllTask.remove(process);
+   
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         session.beginTransaction();
+         List<Task_POJO> sList = null;
+         String queryStr = "from Task_POJO";
+         Query query = session.createQuery(queryStr);
+         sList = query.list();
+         for (Task_POJO s : sList) {
+            if (USER.equals(s.getUserName()) && "All".equals(s.getTaskState()) && process.equals(s.getTaskName())) {
+               session.delete(s); 
+               break;
+            } 
+        }
           session.getTransaction().commit();
           session.close();
         }
