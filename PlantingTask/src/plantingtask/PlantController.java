@@ -259,8 +259,7 @@ public class PlantController implements Initializable {
                 timeline.setAutoReverse(true);
                 timeline.setCycleCount(1);
                 timeline.play();
-                timeline.setRate(3);
-                
+                timeline.setRate(3);       
             }
             if (newSelectedCount.intValue() == maxNumSelected - 4) {
                 Timeline timeline = new Timeline(
@@ -383,10 +382,8 @@ public class PlantController implements Initializable {
             } else {
                 selectedCheckBoxes.remove(checkBox);
                 unselectedCheckBoxes.add(checkBox);
-            }
-            
-        });
-        
+            }  
+        });    
     }
     
     @Override
@@ -451,10 +448,8 @@ public class PlantController implements Initializable {
     void backtotask(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Tasks.fxml"));
-        Parent registerParent1 = loader.load();
-        
+        Parent registerParent1 = loader.load();       
         Scene WelcomeScene = new Scene(registerParent1);
-
         //access the controller and call a method
         TasksController controller = loader.getController();
         controller.initData(USER);

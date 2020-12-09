@@ -22,7 +22,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -176,6 +175,18 @@ public class AddTasksController implements Initializable {
         tx.commit();
         session.close();
         System.out.println("inserted a contact: " + task.getTaskName());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Tasks.fxml"));
+        Parent registerParent1 = loader.load();
+
+        Scene WelcomeScene = new Scene(registerParent1);
+
+        //access the controller and call a method
+        TasksController controller = loader.getController();
+        controller.initData(USER);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(WelcomeScene);
+        stage.show();
     }
 
     @Override
@@ -218,14 +229,14 @@ public class AddTasksController implements Initializable {
         //make them into integers
         int intmonthNow =Integer.parseInt(monthNow); 
         int intmonthDue =Integer.parseInt(monthDue); 
-        System.out.println("month now "+intmonthNow + " due date "+ intmonthDue);
+        System.out.println("Month now "+intmonthNow + " due Date "+ intmonthDue);
         
         //variables to compare days 
         String DayNow = (df.format(dateobj)).substring(8,10); 
         String DayDue = dueDate.toString().substring(8,10); 
         int intDayNow =Integer.parseInt(DayNow); 
         int intDayDue =Integer.parseInt(DayDue); 
-        System.out.println("Day now "+intDayNow + " due date "+ intDayDue);
+        System.out.println("Day now "+intDayNow + " due Date "+ intDayDue);
         
         //comarition and status determination 
         //if the due date has past or it has 2 or less days to come we will set the status to Today
