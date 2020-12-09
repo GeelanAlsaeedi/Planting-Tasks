@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
@@ -112,7 +114,12 @@
                   </Button>
                </children>
             </VBox>
-            <Circle fill="#eac3c3" layoutX="64.0" layoutY="54.0" onMouseClicked="#toplant" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#eac3c3" layoutX="58.0" layoutY="54.0" onMouseClicked="#toplant" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fitHeight="69.0" fitWidth="117.0" layoutX="6.0" layoutY="21.0" onMouseClicked="#toplant" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../plant%20–%20background@3x.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
