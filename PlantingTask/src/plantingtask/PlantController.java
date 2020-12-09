@@ -23,12 +23,12 @@ import javafx.scene.text.Text;
 import org.hibernate.*;
 
 public class PlantController implements Initializable {
-
+    
     private String USER;
-
+    
     @FXML
     private TextField scoresTF;
-
+    
     @FXML
     private ImageView textim;
     @FXML
@@ -47,19 +47,19 @@ public class PlantController implements Initializable {
     private CheckBox cb1;
     @FXML
     private CheckBox cb2;
-
+    
     @FXML
     private CheckBox cb3;
-
+    
     @FXML
     private CheckBox cb4;
-
+    
     @FXML
     private CheckBox cb5;
-
+    
     @FXML
     private CheckBox cb6;
-
+    
     @FXML
     private Text task1;
     @FXML
@@ -72,17 +72,17 @@ public class PlantController implements Initializable {
     private Text task5;
     @FXML
     private Text task6;
-
+    
     List<Task_POJO> sList = null;
     private Task_POJO taskObj;
-
+    
     private int task1ID;
     private int task2ID;
     private int task3ID;
     private int task4ID;
     private int task5ID;
     private int task6ID;
-
+    
     private int allScore = 0;
     private int taskScore1;
     private int taskScore2;
@@ -90,13 +90,13 @@ public class PlantController implements Initializable {
     private int taskScore4;
     private int taskScore5;
     private int taskScore6;
-
+    
     int counter = 1;
 
     //lists
     private ObservableSet<CheckBox> selectedCheckBoxes = FXCollections.observableSet();
     private ObservableSet<CheckBox> unselectedCheckBoxes = FXCollections.observableSet();
-
+    
     private IntegerBinding numCheckBoxesSelected = Bindings.size(selectedCheckBoxes);
     private IntegerBinding numunCheckBoxesSelected = Bindings.size(unselectedCheckBoxes);
     // max number of selecting
@@ -165,17 +165,17 @@ public class PlantController implements Initializable {
 
     //egg animation
     Image egg6 = new Image("growegg – 5@3x.png");
-
+    
     Image egg7 = new Image("growegg – 4@3x.png");
-
+    
     Image egg8 = new Image("growegg – 3@3x.png");
-
+    
     Image egg9 = new Image("growegg – 2@3x.png");
-
+    
     Image egg10 = new Image("growegg – 1@3x.png");
-
+    
     Image textem = new Image("DID@3x.png");
-
+    
     public void action(ActionEvent event) {
         configureCheckBox(cb1);
         configureCheckBox(cb2);
@@ -186,7 +186,7 @@ public class PlantController implements Initializable {
         //cb1.setSelected(true);
 
         numCheckBoxesSelected.addListener((obs, oldSelectedCount, newSelectedCount) -> {
-
+            
             if (newSelectedCount.intValue() == maxNumSelected) {
                 //eggImage.setVisible(true);
                 Timeline timeline = new Timeline(
@@ -205,14 +205,14 @@ public class PlantController implements Initializable {
                         new KeyFrame(Duration.seconds(12), new KeyValue(BaseImage.imageProperty(), egg9)),
                         new KeyFrame(Duration.seconds(13), new KeyValue(BaseImage.imageProperty(), egg10))
                 );
-
+                
                 timeline.setCycleCount(1);
                 timeline.play();
                 timeline.setRate(3);
                 textanimation();
-
+                
             }
-
+            
             if (newSelectedCount.intValue() == maxNumSelected - 1) {
                 Timeline timeline = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(BaseImage.imageProperty(), plant32)),
@@ -260,7 +260,7 @@ public class PlantController implements Initializable {
                 timeline.setCycleCount(1);
                 timeline.play();
                 timeline.setRate(3);
-
+                
             }
             if (newSelectedCount.intValue() == maxNumSelected - 4) {
                 Timeline timeline = new Timeline(
@@ -291,7 +291,7 @@ public class PlantController implements Initializable {
                 timeline.setCycleCount(1);
                 timeline.play();
                 timeline.setRate(3);
-
+                
             }
         });// end of the addLitener
 
@@ -308,6 +308,7 @@ public class PlantController implements Initializable {
         if (cb2.isSelected()) {
             scoresTF.setText(Integer.toString(allScore));
             allScore = allScore + taskScore2;
+            storeOverallScore();
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             taskObj = (Task_POJO) session.get(Task_POJO.class, task2ID);
@@ -356,7 +357,7 @@ public class PlantController implements Initializable {
             session.close();
         }
     }
-
+    
     void textanimation() {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(2), new KeyValue(textim.imageProperty(), textem))
@@ -367,9 +368,9 @@ public class PlantController implements Initializable {
         timeline.setRate(3);
         sounds();
     }
-
+    
     private void configureCheckBox(CheckBox checkBox) {
-
+        
         checkBox.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
             if (isNowSelected) {
                 unselectedCheckBoxes.remove(checkBox);
@@ -378,38 +379,38 @@ public class PlantController implements Initializable {
                 selectedCheckBoxes.remove(checkBox);
                 unselectedCheckBoxes.add(checkBox);
             }
-
+            
         });
-
+        
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
     }
-
+    
     void sounds() {
-
+        
         AudioClip clip = new AudioClip(this.getClass().getResource("app-29.wav").toString());
         clip.play();
     }
-
+    
     public void initData(String userN) {
         USER = userN;
         //set tasks' names beside checkboxes
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-
+        
         String queryStr = "from Task_POJO";
         Query query = session.createQuery(queryStr);
         sList = query.list();
-
+        
         int count = 0;
         for (Task_POJO s : sList) {
-
+            
             if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && "not done".equals(s.getIsDone()) && s.getTaskName() != null && count <= 6) {
                 count++;
-
+                
                 if (task1.getText().isEmpty()) {
                     task1.setText(s.getTaskName());
                     task1ID = s.getTaskID();
@@ -440,13 +441,13 @@ public class PlantController implements Initializable {
         session.getTransaction().commit();
         session.close();
     }
-
+    
     @FXML
     void backtotask(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Tasks.fxml"));
         Parent registerParent1 = loader.load();
-
+        
         Scene WelcomeScene = new Scene(registerParent1);
 
         //access the controller and call a method
@@ -456,9 +457,21 @@ public class PlantController implements Initializable {
         stage.setScene(WelcomeScene);
         stage.show();
     }
-
+    
     private String toString(int taskScore1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    private void storeOverallScore() {
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        User user = (User) session.get(User.class, USER);
+        int Score = allScore + user.getScore();
+        user.setScore(Score);
+        session.getTransaction().commit();
+        session.close();
+        
+    }    
+    
 }
