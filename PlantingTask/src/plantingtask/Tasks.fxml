@@ -110,7 +110,7 @@
                                 <Font name="Segoe UI Semilight" size="14.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Remove Tasks" textFill="#c26b6b">
+                        <Button mnemonicParsing="false" onAction="#removeTask" opacity="0.59" prefHeight="28.0" prefWidth="150.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Remove Tasks" textFill="#c26b6b">
                             <font>
                                 <Font name="Segoe UI Semilight" size="14.0" />
                             </font>
