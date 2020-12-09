@@ -50,7 +50,7 @@
                         <Font name="Segoe UI Semilight" size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="userPassLog" />
+                  <PasswordField fx:id="userPassLog" opacity="0.59" style="-fx-background-color: white; -fx-background-radius: 5;" />
                </children>
             </HBox>
          </children>
