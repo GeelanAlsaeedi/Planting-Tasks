@@ -118,7 +118,7 @@
                     </children>
                 </VBox>
                 <Circle fill="#e8c3c3" layoutX="64.0" layoutY="54.0" onMouseClicked="#toplant" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
-                <ImageView fitHeight="69.0" fitWidth="117.0" layoutX="6.0" layoutY="21.0" onMouseClicked="#toplant" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="69.0" fitWidth="117.0" layoutX="14.0" layoutY="24.0" onMouseClicked="#toplant" pickOnBounds="true" preserveRatio="true">
                 <image>
                 <Image url="@../plant%20–%20background@3x.png" />
                </image>
