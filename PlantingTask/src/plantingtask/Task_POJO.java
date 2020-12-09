@@ -24,7 +24,7 @@ public class Task_POJO implements java.io.Serializable {
     private String taskName;
 
     @Column(name = "taskScore")
-    private double taskScore;
+    private int taskScore;
 
     @Column(name = "taskState")
     private String taskState;
@@ -41,7 +41,7 @@ public class Task_POJO implements java.io.Serializable {
     public Task_POJO() {
     }
 
-    public Task_POJO(int taskID, String taskName, double taskScore, String taskState, String userName, Date dueDate, String isDone) {
+    public Task_POJO(int taskID, String taskName, int taskScore, String taskState, String userName, Date dueDate, String isDone) {
         this.taskID = taskID;
         this.taskName = taskName;
         this.taskScore = taskScore;
@@ -68,7 +68,7 @@ public class Task_POJO implements java.io.Serializable {
         this.taskName = taskName;
     }
 
-    public void setTaskScore(double taskScore) {
+    public void setTaskScore(int taskScore) {
         this.taskScore = taskScore;
     }
 
@@ -84,7 +84,7 @@ public class Task_POJO implements java.io.Serializable {
         return taskName;
     }
 
-    public double getTaskScore() {
+    public int getTaskScore() {
         return taskScore;
     }
 
