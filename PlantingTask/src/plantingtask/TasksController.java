@@ -90,7 +90,7 @@ public class TasksController implements Initializable {
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(WelcomeScene);
         window.show();
-        
+
     }
 
     public void initData(String userN) {
@@ -166,22 +166,22 @@ public class TasksController implements Initializable {
             }
         }
     }
-    
-     @FXML
+
+    @FXML
     void fromProcesstoTodyTasks(ActionEvent event) {
-      String str =Processing.getSelectionModel().getSelectedItem();
-      if(str != null){
+        String str = Processing.getSelectionModel().getSelectedItem();
+        if (str != null) {
             Processing.getSelectionModel().clearSelection();
             OBLWaitngTask.remove(str);
             OBLTodayTask.add(str);
         }
-         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+
         for (Task_POJO s : sList) {
             if (USER.equals(s.getUserName()) && "Waiting".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
                 s.setTaskState("Today");
@@ -192,21 +192,22 @@ public class TasksController implements Initializable {
             }
         }
     }
+
     @FXML
     void toAllTasks(ActionEvent event) {
-      String str =TodayTasks.getSelectionModel().getSelectedItem();
-      if(str != null){
+        String str = TodayTasks.getSelectionModel().getSelectedItem();
+        if (str != null) {
             TodayTasks.getSelectionModel().clearSelection();
             OBLTodayTask.remove(str);
             OBLAllTask.add(str);
         }
         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         
+        session.beginTransaction();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+
         for (Task_POJO s : sList) {
             if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
                 s.setTaskState("All");
@@ -217,21 +218,22 @@ public class TasksController implements Initializable {
             }
         }
     }
+
     @FXML
     void fromAllToTodayTasks(ActionEvent event) {
-      String str =AllTasks.getSelectionModel().getSelectedItem();
-      if(str != null){
+        String str = AllTasks.getSelectionModel().getSelectedItem();
+        if (str != null) {
             AllTasks.getSelectionModel().clearSelection();
             OBLAllTask.remove(str);
             OBLTodayTask.add(str);
         }
         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         
+        session.beginTransaction();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+
         for (Task_POJO s : sList) {
             if (USER.equals(s.getUserName()) && "All".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
                 s.setTaskState("Today");
@@ -242,22 +244,22 @@ public class TasksController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     void toProcessingTasks(ActionEvent event) {
-      String str =TodayTasks.getSelectionModel().getSelectedItem();
-      if(str != null){
+        String str = TodayTasks.getSelectionModel().getSelectedItem();
+        if (str != null) {
             TodayTasks.getSelectionModel().clearSelection();
             OBLTodayTask.remove(str);
             OBLWaitngTask.add(str);
         }
-      Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+
         for (Task_POJO s : sList) {
             if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
                 s.setTaskState("Waiting");
@@ -268,174 +270,176 @@ public class TasksController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     void allTaskLV(KeyEvent event) {
-        String str =AllTasks.getSelectionModel().getSelectedItem();
-        
+        String str = AllTasks.getSelectionModel().getSelectedItem();
+
         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         
-        if(event.getCode()==KeyCode.RIGHT && str!= null){
-    
+        session.beginTransaction();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+
+        if (event.getCode() == KeyCode.RIGHT && str != null) {
+
             AllTasks.getSelectionModel().clearSelection();
             OBLAllTask.remove(str);
             OBLTodayTask.add(str);
-           
-           for (Task_POJO s : sList) {
-            if (USER.equals(s.getUserName()) && "All".equals(s.getTaskState()) && str.equals(s.getTaskName())) 
-            {   s.setTaskState("Today");
-                session.update(s);
-                session.getTransaction().commit();
-                session.close();
-                break;
+
+            for (Task_POJO s : sList) {
+                if (USER.equals(s.getUserName()) && "All".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
+                    s.setTaskState("Today");
+                    session.update(s);
+                    session.getTransaction().commit();
+                    session.close();
+                    break;
+                }
             }
-           }
         }
         AllTasks.requestFocus();
     }
-    
+
     @FXML
     void todayLV(KeyEvent event) {
-        String str =TodayTasks.getSelectionModel().getSelectedItem();
-        
-         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         
-        if(event.getCode()==KeyCode.LEFT && str!= null){
-    
+        String str = TodayTasks.getSelectionModel().getSelectedItem();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+
+        if (event.getCode() == KeyCode.LEFT && str != null) {
+
             TodayTasks.getSelectionModel().clearSelection();
             OBLTodayTask.remove(str);
             OBLAllTask.add(str);
-           
-           for (Task_POJO s : sList) {
-            if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && str.equals(s.getTaskName())) 
-            {   s.setTaskState("All");
-                session.update(s);
-                session.getTransaction().commit();
-                session.close();
-                break;
+
+            for (Task_POJO s : sList) {
+                if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
+                    s.setTaskState("All");
+                    session.update(s);
+                    session.getTransaction().commit();
+                    session.close();
+                    break;
+                }
             }
-           }
         }
-        if(event.getCode()==KeyCode.RIGHT && str!= null){
-    
+        if (event.getCode() == KeyCode.RIGHT && str != null) {
+
             TodayTasks.getSelectionModel().clearSelection();
             OBLTodayTask.remove(str);
             OBLWaitngTask.add(str);
-           
-           for (Task_POJO s : sList) {
-            if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && str.equals(s.getTaskName())) 
-            {   s.setTaskState("Waiting");
-                session.update(s);
-                session.getTransaction().commit();
-                session.close();
-                break;
+
+            for (Task_POJO s : sList) {
+                if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
+                    s.setTaskState("Waiting");
+                    session.update(s);
+                    session.getTransaction().commit();
+                    session.close();
+                    break;
+                }
             }
-           }
         }
-        
+
         TodayTasks.requestFocus();
     }
-    
+
     @FXML
     void processingLV(KeyEvent event) {
-        String str =Processing.getSelectionModel().getSelectedItem();
-        
+        String str = Processing.getSelectionModel().getSelectedItem();
+
         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         
-        if(event.getCode()==KeyCode.LEFT && str!= null){
-    
+        session.beginTransaction();
+        List<Task_POJO> sList = null;
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+
+        if (event.getCode() == KeyCode.LEFT && str != null) {
+
             Processing.getSelectionModel().clearSelection();
             OBLWaitngTask.remove(str);
             OBLTodayTask.add(str);
-           
-           for (Task_POJO s : sList) {
-            if (USER.equals(s.getUserName()) && "Waiting".equals(s.getTaskState()) && str.equals(s.getTaskName())) 
-            {   s.setTaskState("Today");
-                session.update(s);
-                session.getTransaction().commit();
-                session.close();
-                break;
+
+            for (Task_POJO s : sList) {
+                if (USER.equals(s.getUserName()) && "Waiting".equals(s.getTaskState()) && str.equals(s.getTaskName())) {
+                    s.setTaskState("Today");
+                    session.update(s);
+                    session.getTransaction().commit();
+                    session.close();
+                    break;
+                }
             }
-           }
         }
         Processing.requestFocus();
     }
+
     @FXML
     void removeTask(ActionEvent event) {
-        
-        if (TodayTasks.getSelectionModel().getSelectedItems()!=null ){
-            String today =TodayTasks.getSelectionModel().getSelectedItem();
+
+        if (TodayTasks.getSelectionModel().getSelectedItems() != null) {
+            String today = TodayTasks.getSelectionModel().getSelectedItem();
             OBLTodayTask.remove(today);
-   
-         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         for (Task_POJO s : sList) {
-            if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && today.equals(s.getTaskName())) {
-               session.delete(s); 
-               break;
-            } 
+
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            List<Task_POJO> sList = null;
+            String queryStr = "from Task_POJO";
+            Query query = session.createQuery(queryStr);
+            sList = query.list();
+            for (Task_POJO s : sList) {
+                if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && today.equals(s.getTaskName())) {
+                    session.delete(s);
+                    break;
+                }
+            }
+            session.getTransaction().commit();
+            session.close();
         }
-          session.getTransaction().commit();
-          session.close();
-        }
-            if(Processing.getSelectionModel().getSelectedItems()!=null){
-          String process =Processing.getSelectionModel().getSelectedItem();
+        if (Processing.getSelectionModel().getSelectedItems() != null) {
+            String process = Processing.getSelectionModel().getSelectedItem();
             OBLWaitngTask.remove(process);
-   
-         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         for (Task_POJO s : sList) {
-            if (USER.equals(s.getUserName()) && "Waiting".equals(s.getTaskState()) && process.equals(s.getTaskName())) {
-               session.delete(s); 
-               break;
-            } 
+
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            List<Task_POJO> sList = null;
+            String queryStr = "from Task_POJO";
+            Query query = session.createQuery(queryStr);
+            sList = query.list();
+            for (Task_POJO s : sList) {
+                if (USER.equals(s.getUserName()) && "Waiting".equals(s.getTaskState()) && process.equals(s.getTaskName())) {
+                    session.delete(s);
+                    break;
+                }
+            }
+            session.getTransaction().commit();
+            session.close();
         }
-          session.getTransaction().commit();
-          session.close();  
-        }
-        if(AllTasks.getSelectionModel().getSelectedItems()!=null){
-            String process =AllTasks.getSelectionModel().getSelectedItem();
-            OBLAllTask.remove(process);
-   
-         Session session = HibernateUtil.getSessionFactory().openSession();
-         session.beginTransaction();
-         List<Task_POJO> sList = null;
-         String queryStr = "from Task_POJO";
-         Query query = session.createQuery(queryStr);
-         sList = query.list();
-         for (Task_POJO s : sList) {
-            if (USER.equals(s.getUserName()) && "All".equals(s.getTaskState()) && process.equals(s.getTaskName())) {
-               session.delete(s); 
-               break;
-            } 
-        }
-          session.getTransaction().commit();
-          session.close();
+         if (AllTasks.getSelectionModel().getSelectedItems() != null) {
+            String all = AllTasks.getSelectionModel().getSelectedItem();
+            OBLAllTask.remove(all);
+
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            List<Task_POJO> sList = null;
+            String queryStr = "from Task_POJO";
+            Query query = session.createQuery(queryStr);
+            sList = query.list();
+            for (Task_POJO s : sList) {
+                if (USER.equals(s.getUserName()) && "All".equals(s.getTaskState()) && all.equals(s.getTaskName())) {
+                    session.delete(s);
+                    break;
+                }
+            }
+            session.getTransaction().commit();
+            session.close();
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
