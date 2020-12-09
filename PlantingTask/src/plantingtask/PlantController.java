@@ -1,12 +1,11 @@
 package plantingtask;
 import java.applet.Applet;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.io.File;
-import java.io.IOException;
+import java.awt.event.*;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,19 +17,12 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableSet;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -47,12 +39,17 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
+import org.hibernate.*;
 
 
 
 
 public class PlantController implements Initializable {
     private String USER;
+    
+    @FXML
+    private TextField scoresTF;
+    
     @FXML
     private ImageView textim;
     @FXML
@@ -84,12 +81,44 @@ public class PlantController implements Initializable {
     @FXML
     private CheckBox cb6;
     
+    @FXML
+    private Text task1;
+    @FXML
+    private Text task2;
+    @FXML
+    private Text task3;
+    @FXML
+    private Text task4;
+    @FXML
+    private Text task5;
+    @FXML
+    private Text task6;
+    
+    List<Task_POJO> sList = null;
+    private Task_POJO taskObj;
+    
+    private int task1ID;
+    private int task2ID;
+    private int task3ID;
+    private int task4ID;
+    private int task5ID;
+    private int task6ID;
+    
+    private int allScore=0;
+    private int taskScore1;
+    private int taskScore2;
+    private int taskScore3;
+    private int taskScore4;
+    private int taskScore5;
+    private int taskScore6;
+    
+    
     int counter = 1;    
     
     //lists
    private ObservableSet<CheckBox> selectedCheckBoxes = FXCollections.observableSet();
    private ObservableSet<CheckBox> unselectedCheckBoxes = FXCollections.observableSet();
-
+   
    private IntegerBinding numCheckBoxesSelected = Bindings.size(selectedCheckBoxes);
    private IntegerBinding numunCheckBoxesSelected = Bindings.size(unselectedCheckBoxes);
    // max number of selecting
@@ -170,7 +199,6 @@ public class PlantController implements Initializable {
    
     
     Image egg6 = new Image("growegg – 5@3x.png");
-    
 
     Image egg7 = new Image("growegg – 4@3x.png");
     
@@ -304,13 +332,20 @@ public class PlantController implements Initializable {
      timeline.setCycleCount(1);
      timeline.play();
      timeline.setRate(3);
-        
-    
+
     }
-  
-    });
+    });// end of the addLitener
          
-       
+        if(cb1.isSelected()){
+           scoresTF.setText(Integer.toString(taskScore1));
+           allScore=taskScore1;
+           Session session = HibernateUtil.getSessionFactory().openSession();
+           session.beginTransaction();
+           taskObj=(Task_POJO)session.get(Task_POJO.class, task1ID);
+           taskObj.setIsDone("Done!");
+           session.getTransaction().commit();
+           session.close();
+        }
     } 
     
     void textanimation(){
@@ -348,16 +383,60 @@ public class PlantController implements Initializable {
     } 
     
 
-    void sounds(){
-        
-           AudioClip clip =new AudioClip(this.getClass().getResource("app-29.wav").toString());
-           clip.play();
-     }
-        public void initData(String userN) {
-        USER = userN;
+    void sounds() {
+
+        AudioClip clip = new AudioClip(this.getClass().getResource("app-29.wav").toString());
+        clip.play();
     }
     
-        @FXML
+    public void initData(String userN) {
+        USER = userN;
+        //set tasks' names beside checkboxes
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        String queryStr = "from Task_POJO";
+        Query query = session.createQuery(queryStr);
+        sList = query.list();
+         
+        int count=0;
+        for (Task_POJO s : sList) {
+            
+         if (USER.equals(s.getUserName()) && "Today".equals(s.getTaskState()) && "not done".equals(s.getIsDone()) && s.getTaskName()!= null && count<=6 ){
+             count++;
+              
+                if(task1.getText().isEmpty()){
+                    task1.setText(s.getTaskName());
+                    task1ID= s.getTaskID();
+                    taskScore1=s.getTaskScore();
+                }else if(task2.getText().isEmpty()){
+                    task2.setText(s.getTaskName());
+                    task2ID= s.getTaskID();
+                    taskScore2=s.getTaskScore();
+                }else if(task3.getText().isEmpty()){
+                    task3.setText(s.getTaskName());
+                    task3ID= s.getTaskID();
+                    taskScore3=s.getTaskScore();
+                }else if(task4.getText().isEmpty()){
+                    task4.setText(s.getTaskName());
+                    task4ID= s.getTaskID();
+                    taskScore4=s.getTaskScore();
+                }else if(task5.getText().isEmpty()){
+                    task5.setText(s.getTaskName());
+                    task5ID= s.getTaskID();
+                    taskScore5=s.getTaskScore();
+                }else{
+                    task4.setText(s.getTaskName());
+                    task6ID= s.getTaskID();
+                    taskScore6=s.getTaskScore();
+                }
+            }
+        }
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+    @FXML
     void backtotask(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Tasks.fxml"));
@@ -371,6 +450,10 @@ public class PlantController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(WelcomeScene);
         stage.show();
+    }
+
+    private String toString(int taskScore1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
