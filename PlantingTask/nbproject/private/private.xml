@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
             <file>file:/C:/Users/Joman/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/User.java</file>
             <file>file:/C:/Users/Joman/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/Plant.fxml</file>
             <file>file:/C:/Users/Joman/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/Tasks.fxml</file>
@@ -17,6 +18,15 @@
             <file>file:/C:/Users/Joman/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/HibernateUtil.java</file>
             <file>file:/C:/Users/Joman/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/hibernate.cfg.xml</file>
             <file>file:/C:/Users/Joman/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/AddTasksController.java</file>
+
+            <file>file:/C:/Users/Geela/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/Task_POJO.java</file>
+            <file>file:/C:/Users/Geela/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/AddTasksController.java</file>
+            <file>file:/C:/Users/Geela/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/WelcomSignINUpController.java</file>
+            <file>file:/C:/Users/Geela/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/PlantingTask.java</file>
+            <file>file:/C:/Users/Geela/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/TasksController.java</file>
+            <file>file:/C:/Users/Geela/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Geela/Documents/GitHub/Planting-Tasks/PlantingTask/src/plantingtask/User.java</file>
+
         </group>
     </open-files>
 </project-private>

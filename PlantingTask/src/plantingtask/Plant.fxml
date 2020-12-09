@@ -1,44 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5f3f5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="plantingtask.PlantController">
-       <children>
-      <VBox layoutX="24.0" layoutY="14.0" prefHeight="107.0" prefWidth="164.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="133.0" text="Score" textFill="#c26b6b" translateX="2.0" translateY="3.0">
-               <font>
-                  <Font name="Segoe UI Semibold" size="18.0" />
-               </font>
-            </Label>
-            <TextField opacity="0.59" style="-fx-background-color: #eac3c3;" translateX="2.0" translateY="4.0" />
-         </children>
-      </VBox>
-      <VBox layoutX="30.0" layoutY="101.0" opacity="0.59" prefHeight="226.0" prefWidth="164.0" spacing="10.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 8;">
-         <children>
-            <Label prefHeight="34.0" prefWidth="133.0" text="Today's Tasks:" textFill="#c26b6b">
-               <font>
-                  <Font name="Segoe UI Semilight" size="20.0" />
-               </font>
-            </Label>
-            <CheckBox id="cb1" fx:id="cb1" mnemonicParsing="false" translateY="2.0" />
-            <CheckBox id="cb2" fx:id="cb2" mnemonicParsing="false" translateY="4.0" />
-            <CheckBox id="cb3" fx:id="cb3" mnemonicParsing="false" translateY="6.0" />
-            <CheckBox id="cb4" fx:id="cb4" mnemonicParsing="false" translateY="8.0" />
-            <CheckBox id="cb5" fx:id="cb5" mnemonicParsing="false" translateY="10.0" />
-            <CheckBox id="cb6" fx:id="cb6" mnemonicParsing="false" translateY="12.0" />
-         </children>
-      </VBox>
-      <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#backtotask" opacity="0.59" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
-         <font>
-            <Font name="Segoe UI Semilight" size="12.0" />
-         </font>
-      </Button>
-   </children>
+    <children>
+        <VBox layoutX="24.0" layoutY="14.0" prefHeight="107.0" prefWidth="164.0">
+            <children>
+                <Label prefHeight="17.0" prefWidth="133.0" text="Score" textFill="#c26b6b" translateX="2.0" translateY="3.0">
+                    <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="scoresTF" opacity="0.59" style="-fx-background-color: #eac3c3;" translateX="2.0" translateY="4.0" />
+            </children>
+        </VBox>
+        <VBox layoutX="30.0" layoutY="101.0" opacity="0.59" prefHeight="244.0" prefWidth="164.0" spacing="10.0" style="-fx-background-color: #eac3c3; -fx-background-radius: 8;">
+            <children>
+                <Label prefHeight="34.0" prefWidth="133.0" text="Today's Tasks:" textFill="#c26b6b">
+                    <font>
+                        <Font name="Segoe UI Semilight" size="20.0" />
+                    </font>
+                </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                      <CheckBox fx:id="cb1" mnemonicParsing="false" onAction="#action" />
+                  <Text fx:id="task1" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="125.59997797012329">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                      <CheckBox id="cb2" fx:id="cb2" mnemonicParsing="false" onAction="#action" />
+                  <Text fx:id="task2" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="125.59997797012329" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                      <CheckBox id="cb3" fx:id="cb3" mnemonicParsing="false" onAction="#action" />
+                  <Text fx:id="task3" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="125.59997797012329" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                      <CheckBox id="cb4" fx:id="cb4" mnemonicParsing="false" onAction="#action" />
+                  <Text fx:id="task4" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="125.59997797012329" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                      <CheckBox id="cb5" fx:id="cb5" mnemonicParsing="false" onAction="#action" />
+                  <Text fx:id="task5" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="125.59997797012329" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                      <CheckBox id="cb6" fx:id="cb6" mnemonicParsing="false" onAction="#action" />
+                  <Text fx:id="task6" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="125.59997797012329" />
+               </children>
+            </HBox>
+            </children>
+         <padding>
+            <Insets bottom="15.0" left="5.0" top="3.0" />
+         </padding>
+        </VBox>
+        <Button layoutX="539.0" layoutY="14.0" mnemonicParsing="false" onAction="#backtotask" opacity="0.59" style="-fx-background-color: #eac3c3; -fx-background-radius: 5;" text="Back" textFill="#c26b6b">
+            <font>
+                <Font name="Segoe UI Semilight" size="12.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="210.0" fitWidth="406.0" layoutX="194.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../plantFirtGrowingone@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="image5" fitHeight="210.0" fitWidth="406.0" layoutX="192.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../plantFinalgrowing4@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="image4" fitHeight="210.0" fitWidth="406.0" layoutX="192.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../plantFinalgrowing3@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imagev3" disable="true" fitHeight="210.0" fitWidth="406.0" layoutX="193.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../plantFinalgrowing2@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imagev2" disable="true" fitHeight="210.0" fitWidth="403.0" layoutX="193.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../plantFinalgrowing1@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="BaseImage" fitHeight="210.0" fitWidth="406.0" layoutX="193.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../plantempty@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="236.0" fitWidth="292.0" layoutX="225.0" layoutY="-71.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../whiteCloud@3x%202.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="150.0" fitWidth="237.0" layoutX="184.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Lastcloudss@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Lastcloudss@3x.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="textim" fitHeight="97.0" fitWidth="278.0" layoutX="255.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="eggImage" fitHeight="286.0" fitWidth="50.0" layoutX="350.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <image>
+                <Image url="@../downEgg@3x.png" />
+            </image>
+        </ImageView>
+    </children>
 </Pane>

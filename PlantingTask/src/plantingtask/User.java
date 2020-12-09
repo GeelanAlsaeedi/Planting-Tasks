@@ -1,6 +1,5 @@
 package plantingtask;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
