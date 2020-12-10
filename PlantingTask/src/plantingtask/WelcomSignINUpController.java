@@ -191,7 +191,6 @@ public class WelcomSignINUpController implements Initializable {
                 TasksController controller = loader.getController();
                 controller.initData(getLoggedInUser());
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
                 window.setScene(WelcomeScene);
                 window.show();
             }

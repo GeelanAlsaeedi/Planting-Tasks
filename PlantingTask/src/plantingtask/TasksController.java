@@ -419,7 +419,7 @@ public class TasksController implements Initializable {
             session.getTransaction().commit();
             session.close();
         }
-         if (AllTasks.getSelectionModel().getSelectedItems() != null) {
+        if (AllTasks.getSelectionModel().getSelectedItems() != null) {
             String all = AllTasks.getSelectionModel().getSelectedItem();
             OBLAllTask.remove(all);
 
