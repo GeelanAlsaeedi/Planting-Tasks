@@ -155,6 +155,9 @@ public class AddTasksController implements Initializable {
     @FXML
     void addDate(ActionEvent event) {
         Due = java.sql.Date.valueOf(datePicker.getValue());
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateobj = new Date();
+        System.out.println(df.format(dateobj));
         checkStatus(Due);
     }
 
@@ -221,7 +224,6 @@ public class AddTasksController implements Initializable {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date dateobj = new Date();
         System.out.println(df.format(dateobj));
-        
         //variables to compare monthes 
         //get substring were months are
         String monthNow = (df.format(dateobj)).substring(5,7); 
@@ -230,7 +232,6 @@ public class AddTasksController implements Initializable {
         int intmonthNow =Integer.parseInt(monthNow); 
         int intmonthDue =Integer.parseInt(monthDue); 
         System.out.println("Month now "+intmonthNow + " due Date "+ intmonthDue);
-        
         //variables to compare days 
         String DayNow = (df.format(dateobj)).substring(8,10); 
         String DayDue = dueDate.toString().substring(8,10); 

@@ -473,5 +473,4 @@ public class PlantController implements Initializable {
         session.close();
         
     }    
-    
 }
